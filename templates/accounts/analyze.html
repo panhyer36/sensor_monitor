@@ -1,0 +1,806 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<style>
+    .recommendation-card {
+        border-left: 4px solid var(--teal-color);
+    }
+    
+    .data-card {
+        transition: transform 0.2s;
+    }
+    
+    .data-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .stats-table th {
+        background-color: #444;
+    }
+    
+    .stats-table tr:nth-child(odd) {
+        background-color: #383838;
+    }
+    
+    .stats-table tr:nth-child(even) {
+        background-color: #404040;
+    }
+    
+    .good-value {
+        color: #5cbbaf;
+    }
+    
+    .warning-value {
+        color: #ffc107;
+    }
+    
+    .danger-value {
+        color: #dc3545;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mt-4 mb-4 text-center">
+        <i class="bi bi-graph-up"></i> Air Quality Analysis
+    </h2>
+    
+    {% if latest_data %}
+    <!-- Latest Data -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark">
+                    <h4 class="mb-0">
+                        <i class="bi bi-clock"></i> Current Air Quality 
+                        <small class="text-muted">({{ latest_data.timestamp|date:"Y-m-d H:i" }})</small>
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="card data-card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">CO₂</h5>
+                                    <p class="display-6 mb-0 
+                                        {% if latest_data.co2 >= 2000 %}danger-value
+                                        {% elif latest_data.co2 >= 1500 %}warning-value
+                                        {% elif latest_data.co2 >= 800 %}warning-value
+                                        {% else %}good-value{% endif %}">
+                                        {{ latest_data.co2|floatformat:0 }}
+                                    </p>
+                                    <p class="mb-0 text-muted">ppm</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="card data-card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Humidity</h5>
+                                    <p class="display-6 mb-0 
+                                        {% if latest_data.humidity > 70 %}danger-value
+                                        {% elif latest_data.humidity > 60 %}warning-value
+                                        {% elif latest_data.humidity < 30 %}warning-value
+                                        {% else %}good-value{% endif %}">
+                                        {{ latest_data.humidity|floatformat:0 }}
+                                    </p>
+                                    <p class="mb-0 text-muted">%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="card data-card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Temperature</h5>
+                                    <p class="display-6 mb-0 
+                                        {% if latest_data.temperature > 30 %}danger-value
+                                        {% elif latest_data.temperature > 25 %}warning-value
+                                        {% elif latest_data.temperature < 18 %}warning-value
+                                        {% else %}good-value{% endif %}">
+                                        {{ latest_data.temperature|floatformat:1 }}
+                                    </p>
+                                    <p class="mb-0 text-muted">°C</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="card data-card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">PM1.0</h5>
+                                    <p class="display-6 mb-0 
+                                        {% if latest_data.pm1_0 >= 45 %}danger-value
+                                        {% elif latest_data.pm1_0 >= 25 %}danger-value
+                                        {% elif latest_data.pm1_0 >= 10 %}warning-value
+                                        {% else %}good-value{% endif %}">
+                                        {{ latest_data.pm1_0|floatformat:1 }}
+                                    </p>
+                                    <p class="mb-0 text-muted">μg/m³</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="card data-card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">PM2.5</h5>
+                                    <p class="display-6 mb-0 
+                                        {% if latest_data.pm2_5 >= 55.4 %}danger-value
+                                        {% elif latest_data.pm2_5 >= 35.4 %}danger-value
+                                        {% elif latest_data.pm2_5 >= 12 %}warning-value
+                                        {% else %}good-value{% endif %}">
+                                        {{ latest_data.pm2_5|floatformat:1 }}
+                                    </p>
+                                    <p class="mb-0 text-muted">μg/m³</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4 mb-3">
+                            <div class="card data-card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">PM10</h5>
+                                    <p class="display-6 mb-0 
+                                        {% if latest_data.pm10_0 >= 254 %}danger-value
+                                        {% elif latest_data.pm10_0 >= 154 %}danger-value
+                                        {% elif latest_data.pm10_0 >= 54 %}warning-value
+                                        {% else %}good-value{% endif %}">
+                                        {{ latest_data.pm10_0|floatformat:1 }}
+                                    </p>
+                                    <p class="mb-0 text-muted">μg/m³</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recommendations -->
+    {% if recommendations %}
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm recommendation-card">
+                <div class="card-header bg-dark">
+                    <h4 class="mb-0"><i class="bi bi-lightbulb"></i> Recommendations</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        {% for recommendation in recommendations %}
+                        <li class="list-group-item bg-transparent border-bottom border-secondary">
+                            <i class="bi bi-arrow-right-circle me-2"></i> {{ recommendation }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- Statistical Data -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <ul class="nav nav-tabs" id="statsTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="today-tab" data-bs-toggle="tab" data-bs-target="#today" type="button" role="tab" aria-controls="today" aria-selected="true">
+                        <i class="bi bi-calendar-day"></i> Today
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="week-tab" data-bs-toggle="tab" data-bs-target="#week" type="button" role="tab" aria-controls="week" aria-selected="false">
+                        <i class="bi bi-calendar-week"></i> This Week
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="month-tab" data-bs-toggle="tab" data-bs-target="#month" type="button" role="tab" aria-controls="month" aria-selected="false">
+                        <i class="bi bi-calendar-month"></i> This Month
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content" id="statsTabContent">
+                <!-- Today's Statistics -->
+                <div class="tab-pane fade show active" id="today" role="tabpanel" aria-labelledby="today-tab">
+                    <div class="card border-top-0 rounded-0 rounded-bottom">
+                        <div class="card-body">
+                            <h5 class="mb-4">Today's Air Quality Overview</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-wind fs-3 me-3 text-info"></i>
+                                        <h6 class="mb-0">Air Composition</h6>
+                                    </div>
+                                    <p>Today's average CO₂ concentration is <span class="fw-bold {% if today_stats.avg_co2 >= 2000 %}text-danger{% elif today_stats.avg_co2 >= 800 %}text-warning{% else %}text-success{% endif %}">{{ today_stats.avg_co2|floatformat:0 }} ppm</span>,
+                                     reaching a peak of <span class="fw-bold">{{ today_stats.max_co2|floatformat:0 }} ppm</span>,
+                                     and a low of <span class="fw-bold">{{ today_stats.min_co2|floatformat:0 }} ppm</span>.
+                                    {% if today_stats.avg_co2 >= 2000 %}
+                                     Overall, today's CO₂ concentration is very poor, indicating poor ventilation. Immediate action is needed.
+                                    {% elif today_stats.avg_co2 >= 1500 %}
+                                     Overall, today's CO₂ concentration is poor, suggesting the need to increase indoor ventilation frequency.
+                                    {% elif today_stats.avg_co2 >= 800 %}
+                                     CO₂ concentration is within moderate range, but it's recommended to regularly ventilate.
+                                    {% else %}
+                                     CO₂ concentration is in a good range, indicating adequate air circulation.
+                                    {% endif %}</p>
+                                    
+                                    <p>Particle matter, PM2.5 average is <span class="fw-bold {% if today_stats.avg_pm2_5 >= 55.4 %}text-danger{% elif today_stats.avg_pm2_5 >= 12 %}text-warning{% else %}text-success{% endif %}">{{ today_stats.avg_pm2_5|floatformat:1 }} μg/m³</span>,
+                                    PM10 average is <span class="fw-bold {% if today_stats.avg_pm10_0 >= 154 %}text-danger{% elif today_stats.avg_pm10_0 >= 54 %}text-warning{% else %}text-success{% endif %}">{{ today_stats.avg_pm10_0|floatformat:1 }} μg/m³</span>
+                                    {% if today_stats.avg_pm2_5 >= 55.4 or today_stats.avg_pm10_0 >= 254 %}
+                                     Air quality is very unhealthy, suggesting reducing outdoor activities and using an air purifier indoors.
+                                    {% elif today_stats.avg_pm2_5 >= 35.4 or today_stats.avg_pm10_0 >= 154 %}
+                                     Air quality is unhealthy, sensitive groups should avoid outdoor activities.
+                                    {% elif today_stats.avg_pm2_5 >= 12 or today_stats.avg_pm10_0 >= 54 %}
+                                     Air quality is moderate, sensitive groups should pay attention to protection.
+                                    {% else %}
+                                     Particle matter content is low, air quality is good.
+                                    {% endif %}</p>
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-thermometer-half fs-3 me-3 text-danger"></i>
+                                        <h6 class="mb-0">Temperature and Humidity Environment</h6>
+                                    </div>
+                                    <p>Today's average indoor temperature is <span class="fw-bold {% if today_stats.avg_temperature > 30 %}text-danger{% elif today_stats.avg_temperature > 25 or today_stats.avg_temperature < 18 %}text-warning{% else %}text-success{% endif %}">{{ today_stats.avg_temperature|floatformat:1 }}°C</span>,
+                                     reaching a high of <span class="fw-bold">{{ today_stats.max_temperature|floatformat:1 }}°C</span>,
+                                     and a low of <span class="fw-bold">{{ today_stats.min_temperature|floatformat:1 }}°C</span>.
+                                    {% if today_stats.avg_temperature > 30 %}
+                                     Overall temperature is very hot, which may affect comfort, health and work efficiency severely.
+                                    {% elif today_stats.avg_temperature > 25 %}
+                                     Temperature is hot, which may affect comfort and work efficiency.
+                                    {% elif today_stats.avg_temperature < 18 %}
+                                     Indoor temperature is cold, please pay attention to heating.
+                                    {% else %}
+                                     Temperature is maintained in a comfortable range, which is beneficial for work and rest.
+                                    {% endif %}</p>
+                                    
+                                    <p>Humidity, average humidity is <span class="fw-bold {% if today_stats.avg_humidity > 70 %}text-danger{% elif today_stats.avg_humidity > 60 or today_stats.avg_humidity < 30 %}text-warning{% else %}text-success{% endif %}">{{ today_stats.avg_humidity|floatformat:0 }}%</span>,
+                                     reaching a high of <span class="fw-bold">{{ today_stats.max_humidity|floatformat:0 }}%</span>,
+                                     and a low of <span class="fw-bold">{{ today_stats.min_humidity|floatformat:0 }}%</span>.
+                                    {% if today_stats.avg_humidity > 70 %}
+                                     Humidity is very high, which may lead to mold growth and affect health, it's recommended to use dehumidifier.
+                                    {% elif today_stats.avg_humidity > 60 %}
+                                     Humidity is high, consider using a dehumidifier to improve comfort.
+                                    {% elif today_stats.avg_humidity < 30 %}
+                                     Air is too dry, which may cause skin discomfort and respiratory issues, it's recommended to add humidity appropriately.
+                                    {% else %}
+                                     Humidity is maintained at a comfortable level, which is good for health.
+                                    {% endif %}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-info">
+                                <div class="d-flex">
+                                    <i class="bi bi-info-circle-fill fs-4 me-2"></i>
+                                    <div>
+                                        <h6 class="mb-1">Today's Summary</h6>
+                                        <p class="mb-0">Today's overall air quality
+                                        {% if today_stats.avg_co2 >= 2000 or today_stats.avg_pm2_5 >= 55.4 or today_stats.avg_pm10_0 >= 254 %}
+                                            <span class="badge bg-danger">Poor</span>
+                                        {% elif today_stats.avg_co2 >= 800 or today_stats.avg_pm2_5 >= 12 or today_stats.avg_pm10_0 >= 54 %}
+                                            <span class="badge bg-warning">Average</span>
+                                        {% else %}
+                                            <span class="badge bg-success">Good</span>
+                                        {% endif %}
+                                        and indoor comfort
+                                        {% if today_stats.avg_temperature > 30 or today_stats.avg_temperature < 18 or today_stats.avg_humidity > 70 or today_stats.avg_humidity < 30 %}
+                                            <span class="badge bg-warning">Needs Attention</span>
+                                        {% else %}
+                                            <span class="badge bg-success">Comfortable</span>
+                                        {% endif %}.
+                                         The special thing is
+                                        {% if differences.today_co2_diff > 500 %}
+                                            CO₂ fluctuation is large
+                                        {% elif differences.today_temp_diff > 5 %}
+                                            Temperature change is obvious
+                                        {% elif differences.today_humidity_diff > 20 %}
+                                            Humidity change is large
+                                        {% elif differences.today_pm25_diff > 15 %}
+                                            PM2.5 change is significant
+                                        {% else %}
+                                            All indicators are stable
+                                        {% endif %}, This indicates
+                                        {% if differences.today_co2_diff > 500 %}
+                                            Indoor personnel activity or ventilation situation has changed significantly
+                                        {% elif differences.today_temp_diff > 5 %}
+                                            Temperature control system may need to be adjusted
+                                        {% elif differences.today_humidity_diff > 20 %}
+                                            Indoor and outdoor humidity exchange is frequent
+                                        {% elif differences.today_pm25_diff > 15 %}
+                                            External pollution source may be affecting
+                                        {% else %}
+                                            Environment conditions are stable and controllable
+                                        {% endif %}.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Time Slot Analysis -->
+                            <div class="mt-4">
+                                <h5 class="mb-3">Time Period Analysis</h5>
+                                <div class="card shadow-sm mb-4">
+                                    <div class="card-header bg-dark">
+                                        <h6 class="mb-0">
+                                            <i class="bi bi-clock-history"></i> Which time period has the poorest air quality?
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Time period analysis warning box -->
+                                        {% if worst_slot is not None %}
+                                        <div class="alert alert-warning">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-exclamation-triangle-fill fs-2 me-3"></i>
+                                                <div>
+                                                    <h6 class="mb-1">Poorest Air Quality Period: <strong>{{ time_slots.worst_slot.name }}</strong></h6>
+                                                    <p class="mb-0">During this period, the average CO₂ level is <span class="fw-bold">{{ time_slots.worst_slot.avg_co2|floatformat:0 }} ppm</span> and PM2.5 is <span class="fw-bold">{{ time_slots.worst_slot.avg_pm2_5|floatformat:1 }} μg/m³</span>.</p>
+                                                    <p class="mb-0 mt-2">
+                                                        {% if time_slots.worst_slot.avg_co2 > 1000 %}
+                                                            <span class="badge bg-danger me-2">High CO₂</span>
+                                                        {% endif %}
+                                                        {% if time_slots.worst_slot.avg_pm2_5 > 35 %}
+                                                            <span class="badge bg-danger me-2">High PM2.5</span>
+                                                        {% elif time_slots.worst_slot.avg_pm2_5 > 12 %}
+                                                            <span class="badge bg-warning me-2">Elevated PM2.5</span>
+                                                        {% endif %}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                        <p class="text-center text-muted">Not enough data to determine poorest air quality period for today.</p>
+                                        {% endif %}
+                                        
+                                        <div class="row mt-3">
+                                            <div class="col-12">
+                                                <h6 class="mb-3">Hourly Breakdown</h6>
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover stats-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Period</th>
+                                                                <th>CO₂ (ppm)</th>
+                                                                <th>PM2.5 (μg/m³)</th>
+                                                                <th>Temp (°C)</th>
+                                                                <th>Humidity (%)</th>
+                                                                <th>Data Points</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for slot, data in time_slots.items %}
+                                                                {% if slot != 'worst_slot' %}
+                                                                <tr {% if slot == worst_slot %}class="bg-warning bg-opacity-25"{% endif %}>
+                                                                    <td>{{ data.name }}</td>
+                                                                    <td>
+                                                                        {% if data.avg_co2 %}
+                                                                            <span class="{% if data.avg_co2 >= 2000 %}text-danger{% elif data.avg_co2 >= 1500 %}text-danger{% elif data.avg_co2 >= 800 %}text-warning{% endif %}">
+                                                                                {{ data.avg_co2|floatformat:0 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {% if data.avg_pm2_5 %}
+                                                                            <span class="{% if data.avg_pm2_5 >= 55.4 %}text-danger{% elif data.avg_pm2_5 >= 35.4 %}text-danger{% elif data.avg_pm2_5 >= 12 %}text-warning{% endif %}">
+                                                                                {{ data.avg_pm2_5|floatformat:1 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {% if data.avg_temperature %}
+                                                                            <span class="{% if data.avg_temperature > 30 %}text-danger{% elif data.avg_temperature > 25 %}text-warning{% elif data.avg_temperature < 18 %}text-warning{% endif %}">
+                                                                                {{ data.avg_temperature|floatformat:1 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {% if data.avg_humidity %}
+                                                                            <span class="{% if data.avg_humidity > 70 %}text-danger{% elif data.avg_humidity > 60 %}text-warning{% elif data.avg_humidity < 30 %}text-warning{% endif %}">
+                                                                                {{ data.avg_humidity|floatformat:0 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>{{ data.data|length }}</td>
+                                                                </tr>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- This Week's Statistics -->
+                <div class="tab-pane fade" id="week" role="tabpanel" aria-labelledby="week-tab">
+                    <div class="card border-top-0 rounded-0 rounded-bottom">
+                        <div class="card-body">
+                            <h5 class="mb-4">This Week's Air Quality Trend</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-calendar-week fs-3 me-3 text-primary"></i>
+                                        <h6 class="mb-0">Week Data Analysis</h6>
+                                    </div>
+                                    
+                                    <p>This week's average CO₂ concentration is <span class="fw-bold {% if weekly_stats.avg_co2 >= 2000 %}text-danger{% elif weekly_stats.avg_co2 >= 1500 %}text-danger{% elif weekly_stats.avg_co2 >= 800 %}text-warning{% else %}text-success{% endif %}">{{ weekly_stats.avg_co2|floatformat:0 }} ppm</span>,
+                                    {% if differences.current_vs_weekly_co2 > 0 %}
+                                        Higher than weekly average<span class="text-danger"> by {{ differences.abs_current_vs_weekly_co2|floatformat:0 }} points</span>,
+                                    {% elif differences.current_vs_weekly_co2 < 0 %}
+                                        Lower than weekly average<span class="text-success"> by {{ differences.abs_current_vs_weekly_co2|floatformat:0 }} points</span>,
+                                    {% else %}
+                                        Same as weekly average<span class="text-info">unchanged</span>,
+                                    {% endif %}
+                                    This week's peak value reached <span class="fw-bold">{{ weekly_stats.max_co2|floatformat:0 }} ppm</span>.</p>
+                                    
+                                    <p>This week's PM2.5 particle matter average concentration is <span class="fw-bold {% if weekly_stats.avg_pm2_5 >= 55.4 %}text-danger{% elif weekly_stats.avg_pm2_5 >= 35.4 %}text-danger{% elif weekly_stats.avg_pm2_5 >= 12 %}text-warning{% else %}text-success{% endif %}">{{ weekly_stats.avg_pm2_5|floatformat:1 }} μg/m³</span>,
+                                    PM10 average concentration is <span class="fw-bold {% if weekly_stats.avg_pm10_0 >= 254 %}text-danger{% elif weekly_stats.avg_pm10_0 >= 154 %}text-danger{% elif weekly_stats.avg_pm10_0 >= 54 %}text-warning{% else %}text-success{% endif %}">{{ weekly_stats.avg_pm10_0|floatformat:1 }} μg/m³</span>.
+                                    {% if latest_data.pm2_5 > weekly_stats.avg_pm2_5 or latest_data.pm10_0 > weekly_stats.avg_pm10_0 %}
+                                        Current particle matter concentration is higher than weekly average, suggesting the need to pay attention to air quality changes.
+                                    {% else %}
+                                        Current particle matter concentration is better than weekly average, indicating air quality has improved.
+                                    {% endif %}
+                                    </p>
+                                    
+                                    
+                                </div>
+                                
+                                <div class="col-md-6 mb-4">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="bi bi-thermometer-sun fs-3 me-3 text-warning"></i>
+                                        <h6 class="mb-0">Week Environment Comfort Analysis</h6>
+                                    </div>
+                                    
+                                    <p>This week's average temperature is maintained at <span class="fw-bold {% if weekly_stats.avg_temperature > 30 %}text-danger{% elif weekly_stats.avg_temperature > 25 %}text-warning{% elif weekly_stats.avg_temperature < 18 %}text-warning{% else %}text-success{% endif %}">{{ weekly_stats.avg_temperature|floatformat:1 }}°C</span>, 
+                                    Week temperature difference is large, from <span class="fw-bold">{{ weekly_stats.min_temperature|floatformat:1 }}°C</span> to <span class="fw-bold">{{ weekly_stats.max_temperature|floatformat:1 }}°C</span>, 
+                                    Temperature fluctuation may affect environment comfort.</p>
+                                    
+                                    <p>Week average humidity is <span class="fw-bold {% if weekly_stats.avg_humidity > 70 %}text-danger{% elif weekly_stats.avg_humidity > 60 %}text-warning{% elif weekly_stats.avg_humidity < 30 %}text-warning{% else %}text-success{% endif %}">{{ weekly_stats.avg_humidity|floatformat:0 }}%</span>, 
+                                    Week humidity is maintained between <span class="fw-bold">{{ weekly_stats.min_humidity|floatformat:0 }}%</span> and <span class="fw-bold">{{ weekly_stats.max_humidity|floatformat:0 }}%</span>, 
+                                    Relative stable humidity helps maintain environment stability.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-primary">
+                                <div class="d-flex">
+                                    <i class="bi bi-graph-up fs-4 me-2"></i>
+                                    <div>
+                                        <h6 class="mb-1">Week Trend Analysis</h6>
+                                        <p class="mb-0">This week's air quality
+                                        {% if weekly_stats.avg_co2 >= 2000 or weekly_stats.avg_pm2_5 >= 55.4 or weekly_stats.avg_pm10_0 >= 254 %}
+                                            <span class="badge bg-danger">Poor</span>
+                                        {% elif weekly_stats.avg_co2 >= 800 or weekly_stats.avg_pm2_5 >= 12 or weekly_stats.avg_pm10_0 >= 54 %}
+                                            <span class="badge bg-warning">Average</span>
+                                        {% else %}
+                                            <span class="badge bg-success">Good</span>
+                                        {% endif %}
+                                        and indoor comfort
+                                        {% if weekly_stats.avg_temperature > 30 or weekly_stats.avg_temperature < 18 or weekly_stats.avg_humidity > 70 or weekly_stats.avg_humidity < 30 %}
+                                            <span class="badge bg-warning">Needs Attention</span>
+                                        {% else %}
+                                            <span class="badge bg-success">Comfortable</span>
+                                        {% endif %}. 
+                                        Compared with current data,
+                                        {% if latest_data.co2 < weekly_stats.avg_co2 and latest_data.pm2_5 < weekly_stats.avg_pm2_5 and latest_data.pm10_0 < weekly_stats.avg_pm10_0 %}
+                                            today's air quality <span class="text-success">improved</span>
+                                        {% elif latest_data.co2 > weekly_stats.avg_co2 and latest_data.pm2_5 > weekly_stats.avg_pm2_5 and latest_data.pm10_0 > weekly_stats.avg_pm10_0 %}
+                                            today's air quality <span class="text-danger">slightly decreased</span>
+                                        {% else %}
+                                            today's air quality <span class="text-info">change is not large</span>
+                                        {% endif %}.
+                                        Overall,
+                                        {% if weekly_stats.avg_co2 > 1000 or weekly_stats.avg_pm2_5 > 35 or weekly_stats.avg_pm10_0 > 150 %}
+                                            it's recommended to increase ventilation frequency and consider using air purification equipment
+                                        {% elif weekly_stats.avg_co2 > 800 or weekly_stats.avg_pm2_5 > 12 or weekly_stats.avg_pm10_0 > 50 %}
+                                            it's recommended to maintain environment ventilation and pay attention to air quality changes
+                                        {% else %}
+                                            currently, the air quality in the environment is maintained well, it's recommended to maintain the existing management method
+                                        {% endif %}.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Daily Analysis -->
+                            <div class="mt-4">
+                                <h5 class="mb-3">Daily Air Quality Analysis</h5>
+                                <div class="card shadow-sm mb-4">
+                                    <div class="card-header bg-dark">
+                                        <h6 class="mb-0">
+                                            <i class="bi bi-calendar-check"></i> Which day has the poorest air quality?
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        {% if worst_day is not None and daily_stats|length > 0 %}
+                                        <div class="alert alert-warning">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-exclamation-triangle-fill fs-2 me-3"></i>
+                                                <div>
+                                                    <h6 class="mb-1">Poorest Air Quality Day: <strong>{{ daily_stats.worst_day.name }}</strong> ({{ daily_stats.worst_day.date|date:"M d, Y" }})</h6>
+                                                    <p class="mb-0">On this day, the average CO₂ level was <span class="fw-bold">{{ daily_stats.worst_day.avg_co2|floatformat:0 }} ppm</span> and PM2.5 was <span class="fw-bold">{{ daily_stats.worst_day.avg_pm2_5|floatformat:1 }} μg/m³</span>.</p>
+                                                    <p class="mb-0 mt-2">
+                                                        {% if daily_stats.worst_day.avg_co2 > 1000 %}
+                                                            <span class="badge bg-danger me-2">High CO₂</span>
+                                                        {% endif %}
+                                                        {% if daily_stats.worst_day.avg_pm2_5 > 35 %}
+                                                            <span class="badge bg-danger me-2">High PM2.5</span>
+                                                        {% elif daily_stats.worst_day.avg_pm2_5 > 12 %}
+                                                            <span class="badge bg-warning me-2">Elevated PM2.5</span>
+                                                        {% endif %}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                        <p class="text-center text-muted">Not enough data to determine poorest air quality day for this week.</p>
+                                        {% endif %}
+                                        
+                                        <div class="row mt-3">
+                                            <div class="col-12">
+                                                <h6 class="mb-3">Past 7 Days Breakdown</h6>
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover stats-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Day</th>
+                                                                <th>Date</th>
+                                                                <th>CO₂ (ppm)</th>
+                                                                <th>PM2.5 (μg/m³)</th>
+                                                                <th>Temp (°C)</th>
+                                                                <th>Humidity (%)</th>
+                                                                <th>Readings</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for day_index, stats in daily_stats.items %}
+                                                                {% if day_index != 'worst_day' %}
+                                                                <tr {% if day_index == worst_day %}class="bg-warning bg-opacity-25"{% endif %}>
+                                                                    <td>{{ stats.name }}</td>
+                                                                    <td>{{ stats.date|date:"M d" }}</td>
+                                                                    <td>
+                                                                        {% if stats.avg_co2 %}
+                                                                            <span class="{% if stats.avg_co2 >= 2000 %}text-danger{% elif stats.avg_co2 >= 1500 %}text-danger{% elif stats.avg_co2 >= 800 %}text-warning{% endif %}">
+                                                                                {{ stats.avg_co2|floatformat:0 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {% if stats.avg_pm2_5 %}
+                                                                            <span class="{% if stats.avg_pm2_5 >= 55.4 %}text-danger{% elif stats.avg_pm2_5 >= 35.4 %}text-danger{% elif stats.avg_pm2_5 >= 12 %}text-warning{% endif %}">
+                                                                                {{ stats.avg_pm2_5|floatformat:1 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {% if stats.avg_temperature %}
+                                                                            <span class="{% if stats.avg_temperature > 30 %}text-danger{% elif stats.avg_temperature > 25 %}text-warning{% elif stats.avg_temperature < 18 %}text-warning{% endif %}">
+                                                                                {{ stats.avg_temperature|floatformat:1 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {% if stats.avg_humidity %}
+                                                                            <span class="{% if stats.avg_humidity > 70 %}text-danger{% elif stats.avg_humidity > 60 %}text-warning{% elif stats.avg_humidity < 30 %}text-warning{% endif %}">
+                                                                                {{ stats.avg_humidity|floatformat:0 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>{{ stats.count }}</td>
+                                                                </tr>
+                                                                {% endif %}
+                                                            {% empty %}
+                                                                <tr>
+                                                                    <td colspan="7" class="text-center text-muted">No data available for the past 7 days</td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- This Month's Statistics -->
+                <div class="tab-pane fade" id="month" role="tabpanel" aria-labelledby="month-tab">
+                    <div class="card border-top-0 rounded-0 rounded-bottom">
+                        <div class="card-body">
+                            <h5 class="mb-4">This Month's Environment Quality Review</h5>
+                            
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="bi bi-calendar-month fs-3 me-3 text-success"></i>
+                                    <h6 class="mb-0">Monthly Environment Overview</h6>
+                                </div>
+                                
+                                <p class="mb-4">Over the past 30 days, the average CO₂ concentration in the indoor environment has been maintained at <span class="fw-bold {% if monthly_stats.avg_co2 >= 2000 %}text-danger{% elif monthly_stats.avg_co2 >= 1500 %}text-danger{% elif monthly_stats.avg_co2 >= 800 %}text-warning{% else %}text-success{% endif %}">{{ monthly_stats.avg_co2|floatformat:0 }} ppm</span>.
+                                 Particle matter, PM2.5 average is <span class="fw-bold {% if monthly_stats.avg_pm2_5 >= 55.4 %}text-danger{% elif monthly_stats.avg_pm2_5 >= 35.4 %}text-danger{% elif monthly_stats.avg_pm2_5 >= 12 %}text-warning{% else %}text-success{% endif %}">{{ monthly_stats.avg_pm2_5|floatformat:1 }} μg/m³</span>,
+                                 PM10 average is <span class="fw-bold {% if monthly_stats.avg_pm10_0 >= 254 %}text-danger{% elif monthly_stats.avg_pm10_0 >= 154 %}text-danger{% elif monthly_stats.avg_pm10_0 >= 54 %}text-warning{% else %}text-success{% endif %}">{{ monthly_stats.avg_pm10_0|floatformat:1 }} μg/m³</span>.
+                                 These data show that the indoor air quality over the past month
+                                 {% if monthly_stats.avg_co2 >= 2000 or monthly_stats.avg_pm2_5 >= 55.4 or monthly_stats.avg_pm10_0 >= 254 %}
+                                     Overall performance <span class="text-danger fw-bold">Poor</span>, It's recommended to re-evaluate air management strategy
+                                 {% elif monthly_stats.avg_co2 >= 800 or monthly_stats.avg_pm2_5 >= 12 or monthly_stats.avg_pm10_0 >= 54 %}
+                                     Overall performance <span class="text-warning fw-bold">Average</span>, There is room for improvement
+                                 {% else %}
+                                     Overall performance <span class="text-success fw-bold">Good</span>, Meet health standards
+                                 {% endif %}.</p>
+                                
+                                <p>Temperature and humidity, monthly average temperature is <span class="fw-bold {% if monthly_stats.avg_temperature > 30 %}text-danger{% elif monthly_stats.avg_temperature > 25 %}text-warning{% elif monthly_stats.avg_temperature < 18 %}text-warning{% else %}text-success{% endif %}">{{ monthly_stats.avg_temperature|floatformat:1 }}°C</span>,
+                                 average humidity is <span class="fw-bold {% if monthly_stats.avg_humidity > 70 %}text-danger{% elif monthly_stats.avg_humidity > 60 %}text-warning{% elif monthly_stats.avg_humidity < 30 %}text-warning{% else %}text-success{% endif %}">{{ monthly_stats.avg_humidity|floatformat:0 }}%</span>.
+                                 This environment condition
+                                 {% if monthly_stats.avg_temperature > 30 or monthly_stats.avg_temperature < 18 or monthly_stats.avg_humidity > 70 or monthly_stats.avg_humidity < 30 %}
+                                     May <span class="text-warning fw-bold">Not Comfortable</span>, It will affect indoor activities and health
+                                 {% elif monthly_stats.avg_temperature > 25 or monthly_stats.avg_humidity > 60 %}
+                                     May be <span class="text-warning fw-bold">Slightly Uncomfortable</span> for some people
+                                 {% else %}
+                                     Overall <span class="text-success fw-bold">Comfortable and Suitable</span>, It's suitable for long-term indoor activities
+                                 {% endif %}.</p>
+                            </div>
+                            
+                            <div class="alert alert-success mb-2">
+                                <div class="d-flex">
+                                    <i class="bi bi-bar-chart-line fs-4 me-2"></i>
+                                    <div>
+                                        <h6 class="mb-1">Long-term Trend Assessment</h6>
+                                        <p class="mb-0">Compared with today's data, the air quality over the past 30 days
+                                        {% if latest_data.co2 < monthly_stats.avg_co2 and latest_data.pm2_5 < monthly_stats.avg_pm2_5 and latest_data.pm10_0 < monthly_stats.avg_pm10_0 %}
+                                            Present <span class="text-success fw-bold">Improved Trend</span>, Indicating Effective Air Quality Management Measures
+                                        {% elif latest_data.co2 > monthly_stats.avg_co2 and latest_data.pm2_5 > monthly_stats.avg_pm2_5 and latest_data.pm10_0 > monthly_stats.avg_pm10_0 %}
+                                            Present <span class="text-danger fw-bold">Worsening Trend</span>, Need to Pay Attention to Factors Causing Air Quality Decline
+                                        {% else %}
+                                            Basic <span class="text-info fw-bold">Maintain Stability</span>, No Significant Changes
+                                        {% endif %}.
+                                        
+                                        Long-term, good indoor air quality management should include regular ventilation, appropriate air purification, and timely adjustment of environment control system. In seasonal changes, more attention should be paid to indoor and outdoor temperature and humidity differences, timely adjustment of air conditioning and ventilation system parameters, to obtain the best indoor environment quality.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Weekly Analysis -->
+                            <div class="mt-4">
+                                <h5 class="mb-3">Weekly Air Quality Analysis</h5>
+                                <div class="card shadow-sm mb-4">
+                                    <div class="card-header bg-dark">
+                                        <h6 class="mb-0">
+                                            <i class="bi bi-calendar-week-fill"></i> Which week has the poorest air quality?
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        {% if worst_week is not None and weekly_breakdown|length > 0 %}
+                                        <div class="alert alert-warning">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-exclamation-triangle-fill fs-2 me-3"></i>
+                                                <div>
+                                                    <h6 class="mb-1">Poorest Air Quality Week: <strong>{{ weekly_breakdown.worst_week.start_date|date:"M d" }} - {{ weekly_breakdown.worst_week.end_date|date:"M d, Y" }}</strong></h6>
+                                                    <p class="mb-0">During this week, the average CO₂ level was <span class="fw-bold">{{ weekly_breakdown.worst_week.avg_co2|floatformat:0 }} ppm</span> and PM2.5 was <span class="fw-bold">{{ weekly_breakdown.worst_week.avg_pm2_5|floatformat:1 }} μg/m³</span>.</p>
+                                                    <p class="mb-0 mt-2">
+                                                        {% if weekly_breakdown.worst_week.avg_co2 > 1000 %}
+                                                            <span class="badge bg-danger me-2">High CO₂</span>
+                                                        {% endif %}
+                                                        {% if weekly_breakdown.worst_week.avg_pm2_5 > 35 %}
+                                                            <span class="badge bg-danger me-2">High PM2.5</span>
+                                                        {% elif weekly_breakdown.worst_week.avg_pm2_5 > 12 %}
+                                                            <span class="badge bg-warning me-2">Elevated PM2.5</span>
+                                                        {% endif %}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                        <p class="text-center text-muted">Not enough data to determine poorest air quality week for this month.</p>
+                                        {% endif %}
+                                        
+                                        <div class="row mt-3">
+                                            <div class="col-12">
+                                                <h6 class="mb-3">Monthly Week Breakdown</h6>
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover stats-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Week</th>
+                                                                <th>Period</th>
+                                                                <th>CO₂ (ppm)</th>
+                                                                <th>PM2.5 (μg/m³)</th>
+                                                                <th>Temp (°C)</th>
+                                                                <th>Humidity (%)</th>
+                                                                <th>Readings</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for week_index, stats in weekly_breakdown.items %}
+                                                                {% if week_index != 'worst_week' %}
+                                                                <tr {% if week_index == worst_week %}class="bg-warning bg-opacity-25"{% endif %}>
+                                                                    <td>{{ week_index|add:"1" }}</td>
+                                                                    <td>{{ stats.start_date|date:"M d" }} - {{ stats.end_date|date:"M d" }}</td>
+                                                                    <td>
+                                                                        {% if stats.avg_co2 %}
+                                                                            <span class="{% if stats.avg_co2 >= 2000 %}text-danger{% elif stats.avg_co2 >= 1500 %}text-danger{% elif stats.avg_co2 >= 800 %}text-warning{% endif %}">
+                                                                                {{ stats.avg_co2|floatformat:0 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {% if stats.avg_pm2_5 %}
+                                                                            <span class="{% if stats.avg_pm2_5 >= 55.4 %}text-danger{% elif stats.avg_pm2_5 >= 35.4 %}text-danger{% elif stats.avg_pm2_5 >= 12 %}text-warning{% endif %}">
+                                                                                {{ stats.avg_pm2_5|floatformat:1 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {% if stats.avg_temperature %}
+                                                                            <span class="{% if stats.avg_temperature > 30 %}text-danger{% elif stats.avg_temperature > 25 %}text-warning{% elif stats.avg_temperature < 18 %}text-warning{% endif %}">
+                                                                                {{ stats.avg_temperature|floatformat:1 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {% if stats.avg_humidity %}
+                                                                            <span class="{% if stats.avg_humidity > 70 %}text-danger{% elif stats.avg_humidity > 60 %}text-warning{% elif stats.avg_humidity < 30 %}text-warning{% endif %}">
+                                                                                {{ stats.avg_humidity|floatformat:0 }}
+                                                                            </span>
+                                                                        {% else %}
+                                                                            <span class="text-muted">No data</span>
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    <td>{{ stats.count }}</td>
+                                                                </tr>
+                                                                {% endif %}
+                                                            {% empty %}
+                                                                <tr>
+                                                                    <td colspan="7" class="text-center text-muted">No data available for the past 4 weeks</td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-warning text-center">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        No sensor data is currently available. Please ensure your sensors are functioning properly and connected.
+    </div>
+    {% endif %}
+</div>
+{% endblock %} 

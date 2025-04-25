@@ -1,0 +1,58 @@
+**Air Monitoring System (AMI) Overview**
+
+**Purpose:**
+The AMI System is designed to collect, store, display, and analyze data from various environmental sensors. It provides users with real-time insights and historical trends for air quality, temperature, humidity, and other relevant metrics.
+
+**Key Features:**
+*   **Real-time Data Acquisition:** Collects data from connected sensors periodically.
+*   **Data Storage:** Securely stores sensor readings in a database (currently SQLite).
+*   **Dashboard Visualization:** Displays current sensor readings and historical data charts on a web-based dashboard.
+*   **Alerting:** Configurable alerts for sensor readings exceeding predefined thresholds and send notification via Email.
+*   **Data Export:** Allows users to export sensor data for external analysis in main page.
+*   **AI Chatbot Integration:** Provides multiple chatbot interfaces (basic rule-based and advanced DeepSeek model) for querying system information and sensor data.
+*   **Tool-Enabled AI:** The DeepSeek chat integration utilizes MCP (Model Context Proxy) tools to interact directly with live sensor data (fetch latest readings, summaries, historical data, perform conversions, etc.).
+
+**Supported Sensors (Currently):**
+*   Temperature (°C, °F)
+*   Humidity (%)
+*   Carbon Dioxide (CO2 ppm)
+*   Particulate Matter (PM1.0, PM2.5, PM10.0 μg/m³)
+
+**Data Access & Interaction:**
+*   Web Dashboard: Primary interface for viewing data.
+*   Admin Panel: For system administration (user management, issue review, rule-based chatbot maintain).
+*   API Endpoint (`/api/sensor/`): For programmatic data submission (POST requests).
+*   Chatbots: For natural language queries about the system and data.
+
+**Target Users:**
+*   Facility managers
+*   Environmental monitoring personnel
+*   Researchers
+*   Anyone interested in monitoring local environmental conditions.
+
+**Technology Stack:**
+*   Backend: Django (Python)
+*   Frontend: HTML, CSS, JavaScript (Bootstrap)
+*   Database: SQLite
+*   MCP Server: Python (using the `mcp` `mcpo` library)
+*   AI Model Integration: DeepSeek API 
+
+**MCP (Model Context Protocol)**
+MCP is a **Protocol** open-sourced by Anthropic on Nov. 2024, designed to standardize how AI **Models** connect to external **Context**, such as data sources and tools.
+AI agents require tools to perform tasks, like enabling an AI IDE to automatically submit a GitHub Pull Request. 
+While methods like "function calling" allow models to call APIs directly, they lack standardization. Different developers define functions differently, hindering interoperability and leading to duplicated efforts.
+MCP addresses this by providing a universal standard, much like USB-C offers a common connector for various devices. It defines a consistent way for:
+1.  AI applications to easily integrate different models.
+2.  Models to reliably discover and utilize various external tools and data sources.
+**In summary, the core value of MCP lies in providing a standardized interface—a universal connector—that simplifies connecting AI models with external capabilities (data and tools).**
+
+**FAQ**
+How to setup DeepSeek API? If you want to use our proud DeepSeek service, please edit your API Key on the Profile page and test whether it is available.
+Profile Page Features? The profile page offers several features to customize your sensor monitoring experience: 1) Personal Information 2) Notification Settings - Configure how and when you receive alerts 3) Threshold Settings - Set custom limits for sensor readings 4) Account Security - Change password and security settings. Access your profile by clicking on your username in the top right corner of any page.
+Recommended threshold values? Recommended threshold values for healthy indoor environments are: 1) CO2: <800 ppm (good), 800-1000 ppm (acceptable), >1000 ppm (poor) 2) Temperature: 18-25°C (comfortable range) 3) Humidity: 30-60% (optimal range) 4) PM2.5: <12 μg/m³ (good), 12-35 μg/m³ (moderate), >35 μg/m³ (unhealthy) 5) PM10: <54 μg/m³ (good), 54-154 μg/m³ (moderate), >154 μg/m³ (unhealthy). These values are based on health guidelines and comfort standards for indoor environments. You can customize these in your profile settings based on your specific needs.
+How to analyze data? To analyze your sensor data, go to the "Analyze" page by clicking the link in the navigation bar. The analysis page provides detailed insights into your air quality, including time-based trends, comparisons, and specific problem periods. You can view daily, weekly, and monthly statistics to better understand your environment.
+How to log out? If you want to log out. You can press the "Logout" button on navigation bar.
+How to report issue? You can press "Report Issue" on navigation bar.
+I like to using Fahrenheit not Celsius? We provide a switch button.
+What are dashboard show? Chart and Value for AQI, Temperature and Humidity, CO2, PM1, PM2.5, PM10.
+What are navigation bar show? Report Issue, Chatbot, Analyze, Profile, Logout.

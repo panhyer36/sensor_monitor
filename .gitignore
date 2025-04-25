@@ -1,0 +1,40 @@
+# Shell scripts
+*.sh
+
+# Byte-compiled / optimized files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database files
+db.sqlite3
+db.sqlite3-journal # SQLite journal file
+
+# Virtual Environment
+venv/
+.venv
+
+# Static files collected by collectstatic
+static_root/
+
+# Media files uploaded by users
+media/
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE config folders
+.idea/
+.vscode/
+
+# Secrets file (if you use one like .env)
+.env
+*.env
+
+# Django local settings (if used)
+local_settings.py 

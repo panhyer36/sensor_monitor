@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header bg-info text-white d-flex justify-content-between align-items-center"> {# Added flex utilities #}
+                <h4 class="mb-0"><i class="bi bi-stars"></i> DeepSeek Chat</h4>
+                <button id="clear-chat-btn" class="btn btn-sm btn-outline-light"> {# Added Clear Chat button #}
+                     <i class="bi bi-trash"></i> Clear
+                </button>
+            </div>
+            <div class="card-body">
+                {# Increased height from 400px to 500px #}
+                <div id="chat-messages" class="mb-3" style="height: 600px; overflow-y: auto; background-color: #f0f0f0; border-radius: 5px; padding: 15px; color: #333;">
+                    {# Initial message #}
+                    <div class="message system-message">
+                        <i class="bi bi-info-circle"></i> You are connected to DeepSeek. It can use tools when needed.
+                    </div>
+                </div>
+                <form id="chat-form">
+                    <div class="input-group">
+                        <input type="text" id="chat-input" class="form-control" placeholder="Send a message to DeepSeek..." autocomplete="off">
+                        <button type="submit" class="btn btn-info">
+                            <i class="bi bi-send"></i> Send
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .message {
+        padding: 8px 12px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+        max-width: 80%;
+        word-wrap: break-word;
+    }
+    .user-message {
+        background-color: #e9ecef;
+        margin-left: auto;
+        border-bottom-right-radius: 0;
+        text-align: right;
+    }
+    .bot-message {
+        background-color: #d1ecf1;
+        margin-right: auto;
+        border-bottom-left-radius: 0;
+    }
+    .message i {
+        margin-right: 5px;
+    }
+    #chat-messages {
+         background-color: #ffffff; /* Lighter background */
+         border: 1px solid #dee2e6;
+         /* Height is now inline style, but keeping this selector for potential future use */
+    }
+    .system-message {
+        background-color: #f8f9fa; /* Light gray for system messages */
+        color: #6c757d; /* Muted text color */
+        font-style: italic;
+        font-size: 0.9em;
+        border-left: 3px solid #6c757d;
+        margin-left: auto; /* Align right like user? Or center? Let's keep left for now */
+        margin-right: auto;
+        border-radius: 5px;
+        max-width: 90%;
+    }
+    .tool-details summary {
+        cursor: pointer;
+        outline: none;
+        padding: 2px 5px;
+        border-radius: 3px;
+        background-color: #e9ecef;
+        margin-bottom: 5px;
+        display: inline-block; /* Make summary fit content */
+    }
+    .tool-details summary:hover {
+        background-color: #ced4da;
+    }
+    .tool-details[open] summary {
+         background-color: #ced4da;
+    }
+    .tool-content {
+        padding-left: 20px;
+        border-left: 2px solid #ced4da;
+        margin-top: 5px;
+        margin-left: 5px; /* Indent content slightly */
+    }
+    .tool-content pre {
+        background-color: #333; /* Darker background for code */
+        color: #f0f0f0;
+        padding: 10px;
+        border-radius: 4px;
+        overflow-x: auto;
+        white-space: pre-wrap; /* Wrap long lines */
+        word-wrap: break-word;
+        margin-top: 5px;
+        font-size: 0.85em;
+    }
+    .tool-content code {
+         font-family: monospace;
+    }
+    
+    /* Style adjustments for the clear button if needed */
+    .card-header .btn-outline-light {
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+    .card-header .btn-outline-light:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const messagesContainer = document.getElementById('chat-messages');
+    const sendButton = chatForm.querySelector('button[type="submit"]');
+    const clearChatButton = document.getElementById('clear-chat-btn'); // Get clear button
+
+    // Get CSRF token
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+
+    let chatHistory = []; // Initialize chat history array
+    const MAX_HISTORY_MESSAGES = 10; // Keep last 5 Q&A pairs (10 messages)
+    const MAX_LOCAL_HISTORY = 30; // Limit local array size to prevent excessive memory use
+
+    // Add message to chat window
+    function addMessage(message, type = 'bot', isHtml = false) {
+        const messageDiv = document.createElement('div');
+        let iconClass = 'bi-robot';
+        let messageClass = 'message bot-message';
+
+        if (type === 'user') {
+            iconClass = 'bi-person';
+            messageClass = 'message user-message';
+        } else if (type === 'system') {
+            iconClass = 'bi-gear';
+            messageClass = 'message system-message';
+        }
+
+        messageDiv.className = messageClass;
+        
+        const icon = document.createElement('i');
+        icon.className = `bi ${iconClass}`;
+        messageDiv.appendChild(icon);
+        
+        messageDiv.appendChild(document.createTextNode(' '));
+        
+        const messageText = document.createElement('span');
+        if (isHtml) {
+            messageText.innerHTML = message; // Insert directly if it's safe HTML
+        } else {
+            const sanitizedMessage = message.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, '<br>');
+            messageText.innerHTML = sanitizedMessage;
+        }
+        messageDiv.appendChild(messageText);
+        
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        // Add to chat history (only user and bot messages, not system messages)
+        if (type === 'user' || type === 'bot') {
+            // Determine role based on type
+            const role = (type === 'user') ? 'user' : 'assistant'; 
+            // Store plain text content, not HTML
+            const plainTextMessage = isHtml ? message.replace(/<[^>]*>?/gm, '') : message; 
+            chatHistory.push({ role: role, content: plainTextMessage });
+
+            // Prune local history if it gets too long
+            if (chatHistory.length > MAX_LOCAL_HISTORY) {
+                chatHistory = chatHistory.slice(chatHistory.length - MAX_LOCAL_HISTORY);
+                console.log("Pruned local chat history to last ", MAX_LOCAL_HISTORY, " messages.");
+            }
+        }
+    }
+
+    // Show loading indicator
+    function showLoading(show = true) {
+        if (show) {
+            sendButton.disabled = true;
+            sendButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+        } else {
+            sendButton.disabled = false;
+            sendButton.innerHTML = '<i class="bi bi-send"></i> Send';
+        }
+    }
+
+    // Send query to DeepSeek API endpoint
+    async function sendQueryToDeepSeek(query) {
+        if (!query) return;
+        
+        addMessage(query, 'user');
+        chatInput.value = '';
+        showLoading(true);
+        
+        // Get the last N messages from history
+        const historyToSend = chatHistory.slice(-MAX_HISTORY_MESSAGES);
+        console.log("Sending history:", historyToSend); // Debugging
+
+        try {
+            const response = await fetch('{% url "chatbot:deepseek_api" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrftoken
+                },
+                body: JSON.stringify({ 
+                    message: query, 
+                    history: historyToSend // Send history to backend
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.status === 'success') {
+                // Display tool interactions if they exist
+                if (data.tool_interactions && data.tool_interactions.length > 0) {
+                    let interactionHtml = `Model requested ${data.tool_interactions.length} tool calls:<br>`;
+                    data.tool_interactions.forEach((interaction, index) => {
+                        const argsString = JSON.stringify(interaction.args || {}, null, 2);
+                        const resultString = JSON.stringify(interaction.result || {}, null, 2);
+                        const escapedArgs = argsString.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                        const escapedResult = resultString.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                        interactionHtml += `<details class="tool-details"><summary>Calling tools #${index + 1}: <strong>${interaction.name}</strong></summary><div class="tool-content"><strong>Parameters:</strong><pre><code>${escapedArgs}</code></pre><strong>Results:</strong><pre><code>${escapedResult}</code></pre></div></details>`;
+                    });
+                    addMessage(interactionHtml, 'system', true); 
+                }
+                // Display final bot response and add to history
+                addMessage(data.response, 'bot'); 
+            } else {
+                addMessage(`Error: ${data.message || 'Unknown error'}`, 'system');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            addMessage('Sorry, there was a network error connecting to the DeepSeek service.', 'system');
+        } finally {
+            showLoading(false);
+        }
+    }
+
+    // Form submission handler
+    chatForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const query = chatInput.value.trim();
+        sendQueryToDeepSeek(query);
+    });
+
+    // Clear Chat Button Handler
+    clearChatButton.addEventListener('click', function() {
+        if (confirm("Are you sure you want to clear the chat history?")) {
+            messagesContainer.innerHTML = ''; // Clear visible messages
+            chatHistory = []; // Clear the history array
+            console.log("Chat history cleared.");
+            // Optionally add a system message
+            addMessage('Chat history has been cleared.', 'system');
+        }
+    });
+});
+</script>
+{% endblock %} 

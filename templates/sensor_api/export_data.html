@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h4 class="mb-0"><i class="bi bi-download"></i> Export Sensor Data</h4>
+            </div>
+            <div class="card-body">
+                {% if error %}
+                    <div class="alert alert-danger">
+                        <i class="bi bi-exclamation-triangle"></i> {{ error }}
+                    </div>
+                {% endif %}
+                
+                <form method="post" class="mb-4">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Export Format</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="format" id="format_csv" value="csv" checked>
+                            <label class="form-check-label" for="format_csv">
+                                CSV (Comma Separated Values)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="format" id="format_json" value="json">
+                            <label class="form-check-label" for="format_json">
+                                JSON (JavaScript Object Notation)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Time Range</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="time_range" id="time_range_24h" value="24hours">
+                            <label class="form-check-label" for="time_range_24h">
+                                Last 24 Hours
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="time_range" id="time_range_7d" value="7days" checked>
+                            <label class="form-check-label" for="time_range_7d">
+                                Last 7 Days
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="time_range" id="time_range_30d" value="30days">
+                            <label class="form-check-label" for="time_range_30d">
+                                Last 30 Days
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="time_range" id="time_range_custom" value="custom">
+                            <label class="form-check-label" for="time_range_custom">
+                                Custom Date Range
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div id="custom_date_range" class="mb-3" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="start_date" class="form-label">Start Date</label>
+                                <input type="date" class="form-control" id="start_date" name="start_date">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="end_date" class="form-label">End Date</label>
+                                <input type="date" class="form-control" id="end_date" name="end_date">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Sensor Types</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="sensor_types" id="sensor_all" value="all" checked>
+                            <label class="form-check-label" for="sensor_all">
+                                All Sensors
+                            </label>
+                        </div>
+                        <div class="row mt-2" id="individual_sensors" style="display: none;">
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sensor_types" id="sensor_temperature" value="temperature">
+                                    <label class="form-check-label" for="sensor_temperature">
+                                        Temperature
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sensor_types" id="sensor_humidity" value="humidity">
+                                    <label class="form-check-label" for="sensor_humidity">
+                                        Humidity
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sensor_types" id="sensor_co2" value="co2">
+                                    <label class="form-check-label" for="sensor_co2">
+                                        CO2
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sensor_types" id="sensor_pm1_0" value="pm1_0">
+                                    <label class="form-check-label" for="sensor_pm1_0">
+                                        PM1.0
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sensor_types" id="sensor_pm2_5" value="pm2_5">
+                                    <label class="form-check-label" for="sensor_pm2_5">
+                                        PM2.5
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="sensor_types" id="sensor_pm10_0" value="pm10_0">
+                                    <label class="form-check-label" for="sensor_pm10_0">
+                                        PM10
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{% url 'home' %}" class="btn btn-secondary me-md-2">
+                            <i class="bi bi-x-circle"></i> Cancel
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-download"></i> Export Data
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Switch custom date range display
+    const timeRangeOptions = document.querySelectorAll('input[name="time_range"]');
+    const customDateRange = document.getElementById('custom_date_range');
+    
+    timeRangeOptions.forEach(option => {
+        option.addEventListener('change', function() {
+            if (option.value === 'custom' && option.checked) {
+                customDateRange.style.display = 'block';
+            } else {
+                customDateRange.style.display = 'none';
+            }
+        });
+    });
+    
+    // Switch sensor type options
+    const sensorAllOption = document.getElementById('sensor_all');
+    const individualSensors = document.getElementById('individual_sensors');
+    const individualSensorOptions = document.querySelectorAll('#individual_sensors input[type="checkbox"]');
+    
+    sensorAllOption.addEventListener('change', function() {
+        if (sensorAllOption.checked) {
+            individualSensors.style.display = 'none';
+            // Uncheck all individual sensors
+            individualSensorOptions.forEach(option => {
+                option.checked = false;
+            });
+        } else {
+            individualSensors.style.display = 'block';
+        }
+    });
+    
+    // If individual sensors are selected, uncheck "All Sensors" option
+    individualSensorOptions.forEach(option => {
+        option.addEventListener('change', function() {
+            if (option.checked) {
+                sensorAllOption.checked = false;
+            }
+            
+            // If no individual sensors are selected, re-check "All Sensors"
+            const anyIndividualSelected = Array.from(individualSensorOptions).some(opt => opt.checked);
+            if (!anyIndividualSelected) {
+                sensorAllOption.checked = true;
+                individualSensors.style.display = 'none';
+            }
+        });
+    });
+});
+</script>
+{% endblock %} 
