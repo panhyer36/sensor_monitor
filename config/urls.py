@@ -16,12 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 from accounts.views import home_view
 
+# URLs that should NOT be prefixed with language code
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
     path('api/', include('sensor_api.urls')),
+    path('i18n/', include('django.conf.urls.i18n')),
+]
+
+# URLs that SHOULD be prefixed with language code
+urlpatterns += i18n_patterns(
+    path('accounts/', include('accounts.urls')),
     path('chatbot/', include('chatbot.urls')),
     path('', home_view, name='home'),
-]
+)

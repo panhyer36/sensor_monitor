@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-10">
         <div class="card">
             <div class="card-header bg-primary text-white">
-                <h4 class="mb-0">User Profile</h4>
+                <h4 class="mb-0">{% trans "User Profile" %}</h4>
             </div>
             <div class="card-body">
                 <div class="row mb-4">
@@ -16,26 +17,26 @@
                             </div>
                         </div>
                         <h5>{{ user.username }}</h5>
-                        <p class="text-muted">Member since {{ user.date_joined|date:"F j, Y" }}</p>
+                        <p class="text-muted">{% trans "Member since " %} {{ user.date_joined|date:"F j, Y" }}</p>
                         
                         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <a class="nav-link {% if active_tab == 'profile' %}active{% endif %}" id="profile-tab" data-bs-toggle="pill" href="#profile-content" role="tab" aria-controls="profile-content" aria-selected="true">
-                                <i class="bi bi-person-badge me-2"></i> Profile Information
+                                <i class="bi bi-person-badge me-2"></i> {% trans "Profile Information" %}
                             </a>
                             <a class="nav-link {% if active_tab == 'username' %}active{% endif %}" id="username-tab" data-bs-toggle="pill" href="#username-content" role="tab" aria-controls="username-content" aria-selected="false">
-                                <i class="bi bi-person me-2"></i> Change Username
+                                <i class="bi bi-person me-2"></i> {% trans "Change Username" %}
                             </a>
                             <a class="nav-link {% if active_tab == 'password' %}active{% endif %}" id="password-tab" data-bs-toggle="pill" href="#password-content" role="tab" aria-controls="password-content" aria-selected="false">
-                                <i class="bi bi-shield-lock me-2"></i> Change Password
+                                <i class="bi bi-shield-lock me-2"></i> {% trans "Change Password" %}
                             </a>
                             <a class="nav-link {% if active_tab == 'notifications' %}active{% endif %}" id="notifications-tab" data-bs-toggle="pill" href="#notifications-content" role="tab" aria-controls="notifications-content" aria-selected="false">
-                                <i class="bi bi-bell me-2"></i> Notification Settings
+                                <i class="bi bi-bell me-2"></i> {% trans "Notification Settings" %}
                             </a>
                             <a class="nav-link {% if active_tab == 'thresholds' %}active{% endif %}" id="thresholds-tab" data-bs-toggle="pill" href="#thresholds-content" role="tab" aria-controls="thresholds-content" aria-selected="false">
-                                <i class="bi bi-sliders me-2"></i> Threshold Settings
+                                <i class="bi bi-sliders me-2"></i> {% trans "Threshold Settings" %}
                             </a>
                             <a class="nav-link" id="account-tab" data-bs-toggle="pill" href="#account-content" role="tab" aria-controls="account-content" aria-selected="false">
-                                <i class="bi bi-info-circle me-2"></i> Account Information
+                                <i class="bi bi-info-circle me-2"></i> {% trans "Account Information" %}
                             </a>
                         </div>
                     </div>
@@ -43,11 +44,11 @@
                         <div class="tab-content" id="v-pills-tabContent">
                             <!-- Profile Information Tab -->
                             <div class="tab-pane fade {% if active_tab == 'profile' %}show active{% endif %}" id="profile-content" role="tabpanel" aria-labelledby="profile-tab">
-                                <h5 class="border-bottom pb-2 mb-4">Update Profile Information</h5>
+                                <h5 class="border-bottom pb-2 mb-4">{% trans "Update Profile Information" %}</h5>
                                 <form method="post">
                                     {% csrf_token %}
                                     <div class="mb-3">
-                                        <label for="id_first_name" class="form-label">First Name</label>
+                                        <label for="id_first_name" class="form-label">{% trans "First Name" %}</label>
                                         <input type="text" name="first_name" value="{{ profile_form.first_name.value|default:'' }}" class="form-control {% if profile_form.first_name.errors %}is-invalid{% endif %}" id="id_first_name">
                                         {% if profile_form.first_name.errors %}
                                             <div class="invalid-feedback">
@@ -58,7 +59,7 @@
                                         {% endif %}
                                     </div>
                                     <div class="mb-3">
-                                        <label for="id_last_name" class="form-label">Last Name</label>
+                                        <label for="id_last_name" class="form-label">{% trans "Last Name" %}</label>
                                         <input type="text" name="last_name" value="{{ profile_form.last_name.value|default:'' }}" class="form-control {% if profile_form.last_name.errors %}is-invalid{% endif %}" id="id_last_name">
                                         {% if profile_form.last_name.errors %}
                                             <div class="invalid-feedback">
@@ -69,7 +70,7 @@
                                         {% endif %}
                                     </div>
                                     <div class="mb-3">
-                                        <label for="id_email" class="form-label">Email</label>
+                                        <label for="id_email" class="form-label">{% trans "Email" %}</label>
                                         <input type="email" name="email" value="{{ profile_form.email.value|default:'' }}" class="form-control {% if profile_form.email.errors %}is-invalid{% endif %}" id="id_email">
                                         {% if profile_form.email.errors %}
                                             <div class="invalid-feedback">
@@ -79,24 +80,24 @@
                                             </div>
                                         {% endif %}
                                     </div>
-                                    <button type="submit" name="profile_submit" class="btn btn-primary">Update Profile</button>
+                                    <button type="submit" name="profile_submit" class="btn btn-primary">{% trans "Update Profile" %}</button>
                                 </form>
 
                                 <hr class="my-4">
 
-                                <h5 class="border-bottom pb-2 mb-4">API Key Configuration</h5>
+                                <h5 class="border-bottom pb-2 mb-4">{% trans "API Key Configuration" %}</h5>
                                 <form method="post">
                                     {% csrf_token %}
                                     <div class="mb-3">
                                         <label for="id_api_key" class="form-label">
                                             {{ api_key_form.api_key.label }}
-                                            <a href="https://platform.deepseek.com/api_keys" target="_blank" class="btn btn-sm btn-outline-info ms-2" title="Get DeepSeek API Key">
-                                                <i class="bi bi-box-arrow-up-right"></i> Get Key
+                                            <a href="https://platform.deepseek.com/api_keys" target="_blank" class="btn btn-sm btn-outline-info ms-2" title="{% trans 'Get DeepSeek API Key' %}">
+                                                <i class="bi bi-box-arrow-up-right"></i> {% trans "Get Key" %}
                                             </a>
                                         </label>
                                         <div class="input-group">
                                             <input type="password" name="api_key" value="{{ api_key_form.api_key.value|default:'' }}" class="form-control {% if api_key_form.api_key.errors %}is-invalid{% endif %}" id="id_api_key" placeholder="{{ api_key_form.api_key.field.widget.attrs.placeholder }}">
-                                            <button class="btn btn-outline-secondary" type="button" id="checkApiKeyBtn">Check Connection</button>
+                                            <button class="btn btn-outline-secondary" type="button" id="checkApiKeyBtn">{% trans "Check Connection" %}</button>
                                         </div>
                                         <div id="apiKeyStatus" class="mt-1" style="min-height: 1.2em;"></div>
                                         {% if api_key_form.api_key.errors %}
@@ -110,26 +111,26 @@
                                             {{ api_key_form.api_key.help_text }}
                                         </small>
                                     </div>
-                                    <button type="submit" name="api_key_submit" class="btn btn-secondary">Save API Key</button>
+                                    <button type="submit" name="api_key_submit" class="btn btn-secondary">{% trans "Save API Key" %}</button>
                                 </form>
 
                             </div>
                             
                             <!-- Change Username Tab -->
                             <div class="tab-pane fade {% if active_tab == 'username' %}show active{% endif %}" id="username-content" role="tabpanel" aria-labelledby="username-tab">
-                                <h5 class="border-bottom pb-2 mb-4">Change Your Username</h5>
+                                <h5 class="border-bottom pb-2 mb-4">{% trans "Change Your Username" %}</h5>
                                 <div class="alert alert-info" role="alert">
                                     <i class="bi bi-info-circle-fill me-2"></i>
-                                    <strong>Note:</strong> Changing your username may affect how you log in and how others identify you in the system.
+                                    <strong>{% trans "Note:" %}</strong> {% trans "Changing your username may affect how you log in and how others identify you in the system." %}
                                 </div>
                                 <form method="post">
                                     {% csrf_token %}
                                     <div class="mb-3">
-                                        <label for="id_current_username" class="form-label" style="color: black;">Current Username</label>
+                                        <label for="id_current_username" class="form-label" style="color: black;">{% trans "Current Username" %}</label>
                                         <input type="text" value="{{ user.username }}" class="form-control" id="id_current_username" disabled style="color: black;">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="id_username" class="form-label">New Username</label>
+                                        <label for="id_username" class="form-label">{% trans "New Username" %}</label>
                                         <input type="text" name="username" value="{{ username_form.username.value|default:'' }}" class="form-control {% if username_form.username.errors %}is-invalid{% endif %}" id="id_username" required>
                                         {% if username_form.username.errors %}
                                             <div class="invalid-feedback">
@@ -139,7 +140,7 @@
                                             </div>
                                         {% endif %}
                                         <small class="form-text text-muted">
-                                            Usernames can only contain letters, numbers, and the characters @, ., +, -, and _
+                                            {% trans "Usernames can only contain letters, numbers, and the characters @, ., +, -, and _" %}
                                         </small>
                                     </div>
                                     
@@ -151,17 +152,17 @@
                                         </div>
                                     {% endif %}
                                     
-                                    <button type="submit" name="username_submit" class="btn btn-primary">Change Username</button>
+                                    <button type="submit" name="username_submit" class="btn btn-primary">{% trans "Change Username" %}</button>
                                 </form>
                             </div>
                             
                             <!-- Change Password Tab -->
                             <div class="tab-pane fade {% if active_tab == 'password' %}show active{% endif %}" id="password-content" role="tabpanel" aria-labelledby="password-tab">
-                                <h5 class="border-bottom pb-2 mb-4">Change Your Password</h5>
+                                <h5 class="border-bottom pb-2 mb-4">{% trans "Change Your Password" %}</h5>
                                 <form method="post">
                                     {% csrf_token %}
                                     <div class="mb-3">
-                                        <label for="id_old_password" class="form-label">Current Password</label>
+                                        <label for="id_old_password" class="form-label">{% trans "Current Password" %}</label>
                                         <input type="password" name="old_password" class="form-control {% if password_form.old_password.errors %}is-invalid{% endif %}" id="id_old_password" required>
                                         {% if password_form.old_password.errors %}
                                             <div class="invalid-feedback">
@@ -172,7 +173,7 @@
                                         {% endif %}
                                     </div>
                                     <div class="mb-3">
-                                        <label for="id_new_password1" class="form-label">New Password</label>
+                                        <label for="id_new_password1" class="form-label">{% trans "New Password" %}</label>
                                         <input type="password" name="new_password1" class="form-control {% if password_form.new_password1.errors %}is-invalid{% endif %}" id="id_new_password1" required>
                                         {% if password_form.new_password1.errors %}
                                             <div class="invalid-feedback">
@@ -182,11 +183,11 @@
                                             </div>
                                         {% endif %}
                                         <small class="form-text text-muted">
-                                            Password must contain at least 8 characters and cannot be entirely numeric.
+                                            {% trans "Password must contain at least 8 characters and cannot be entirely numeric." %}
                                         </small>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="id_new_password2" class="form-label">Confirm New Password</label>
+                                        <label for="id_new_password2" class="form-label">{% trans "Confirm New Password" %}</label>
                                         <input type="password" name="new_password2" class="form-control {% if password_form.new_password2.errors %}is-invalid{% endif %}" id="id_new_password2" required>
                                         {% if password_form.new_password2.errors %}
                                             <div class="invalid-feedback">
@@ -205,19 +206,19 @@
                                         </div>
                                     {% endif %}
                                     
-                                    <button type="submit" name="password_submit" class="btn btn-primary">Change Password</button>
+                                    <button type="submit" name="password_submit" class="btn btn-primary">{% trans "Change Password" %}</button>
                                 </form>
                             </div>
                             
                             <!-- Notification Settings Tab -->
                             <div class="tab-pane fade {% if active_tab == 'notifications' %}show active{% endif %}" id="notifications-content" role="tabpanel" aria-labelledby="notifications-tab">
-                                <h5 class="border-bottom pb-2 mb-4">Notification Settings</h5>
+                                <h5 class="border-bottom pb-2 mb-4">{% trans "Notification Settings" %}</h5>
                                 <form method="post">
                                     {% csrf_token %}
                                     <div class="mb-4">
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" role="switch" id="id_email_notifications" name="email_notifications" {% if notification_form.email_notifications.value %}checked{% endif %}>
-                                            <label class="form-check-label" for="id_email_notifications">Receive Email Notifications</label>
+                                            <label class="form-check-label" for="id_email_notifications">{% trans "Receive Email Notifications" %}</label>
                                         </div>
                                         <div class="form-text text-muted">
                                             {{ notification_form.email_notifications.help_text }}
@@ -227,20 +228,20 @@
                                     {% if not user.email %}
                                     <div class="alert alert-warning mb-4">
                                         <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                                        You haven't set an email address yet. Please add an email address in your <a href="#profile-content" data-bs-toggle="pill" aria-controls="profile-content" aria-selected="true">Profile Information</a> to receive notifications.
+                                        {% blocktrans %}You haven't set an email address yet. Please add an email address in your <a href="#profile-content" data-bs-toggle="pill" aria-controls="profile-content" aria-selected="true">Profile Information</a> to receive notifications.{% endblocktrans %}
                                     </div>
                                     {% endif %}
                                     
-                                    <button type="submit" name="notification_submit" class="btn btn-primary">Save Settings</button>
+                                    <button type="submit" name="notification_submit" class="btn btn-primary">{% trans "Save Settings" %}</button>
                                 </form>
                                 
                                 <hr class="my-4">
                                 
-                                <h5 class="mb-3">Test Email Notification</h5>
-                                <p class="text-muted mb-4">Send a test email to your inbox to verify that notification settings are working properly.</p>
+                                <h5 class="mb-3">{% trans "Test Email Notification" %}</h5>
+                                <p class="text-muted mb-4">{% trans "Send a test email to your inbox to verify that notification settings are working properly." %}</p>
                                 
                                 <button id="testEmailBtn" class="btn btn-outline-primary" {% if not user.email %}disabled{% endif %}>
-                                    <i class="bi bi-envelope me-2"></i>Send Test Email
+                                    <i class="bi bi-envelope me-2"></i>{% trans "Send Test Email" %}
                                 </button>
                                 
                                 <div id="testEmailResult" class="mt-3" style="display: none;">
@@ -250,9 +251,9 @@
                             
                             <!-- Threshold Settings Tab -->
                             <div class="tab-pane fade {% if active_tab == 'thresholds' %}show active{% endif %}" id="thresholds-content" role="tabpanel" aria-labelledby="thresholds-tab">
-                                <h5 class="border-bottom pb-2 mb-4">Sensor Threshold Settings</h5>
+                                <h5 class="border-bottom pb-2 mb-4">{% trans "Sensor Threshold Settings" %}</h5>
                                 <p class="text-muted mb-4">
-                                    Set notification thresholds for each sensor. You will be notified when data exceeds your set ranges.
+                                    {% trans "Set notification thresholds for each sensor. You will be notified when data exceeds your set ranges." %}
                                 </p>
                                 
                                 <form method="post">
@@ -262,7 +263,7 @@
                                         <div class="col-md-6">
                                             <div class="card mb-4">
                                                 <div class="card-header bg-primary text-white">
-                                                    <i class="bi bi-thermometer-half me-2"></i> Temperature Settings
+                                                    <i class="bi bi-thermometer-half me-2"></i> {% trans "Temperature Settings" %}
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="mb-3 d-flex justify-content-end">
@@ -275,14 +276,14 @@
                                                         <input type="hidden" name="temp_unit" id="tempUnitInput" value="C">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="id_temp_min" class="form-label">Minimum Temperature (<span class="temp-unit">°C</span>)</label>
+                                                        <label for="id_temp_min" class="form-label">{% trans "Minimum Temperature" %} (<span class="temp-unit">°C</span>)</label>
                                                         {{ threshold_form.temp_min }}
-                                                        <div class="form-text">Notification will trigger below this temperature</div>
+                                                        <div class="form-text">{% trans "Notification will trigger below this temperature" %}</div>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="id_temp_max" class="form-label">Maximum Temperature (<span class="temp-unit">°C</span>)</label>
+                                                        <label for="id_temp_max" class="form-label">{% trans "Maximum Temperature" %} (<span class="temp-unit">°C</span>)</label>
                                                         {{ threshold_form.temp_max }}
-                                                        <div class="form-text">Notification will trigger above this temperature</div>
+                                                        <div class="form-text">{% trans "Notification will trigger above this temperature" %}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -291,18 +292,18 @@
                                         <div class="col-md-6">
                                             <div class="card mb-4">
                                                 <div class="card-header bg-primary text-white">
-                                                    <i class="bi bi-droplet-half me-2"></i> Humidity Settings
+                                                    <i class="bi bi-droplet-half me-2"></i> {% trans "Humidity Settings" %}
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="mb-3">
-                                                        <label for="id_humidity_min" class="form-label">Minimum Humidity (%)</label>
+                                                        <label for="id_humidity_min" class="form-label">{% trans "Minimum Humidity" %} (%)</label>
                                                         {{ threshold_form.humidity_min }}
-                                                        <div class="form-text">Notification will trigger below this humidity</div>
+                                                        <div class="form-text">{% trans "Notification will trigger below this humidity" %}</div>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="id_humidity_max" class="form-label">Maximum Humidity (%)</label>
+                                                        <label for="id_humidity_max" class="form-label">{% trans "Maximum Humidity" %} (%)</label>
                                                         {{ threshold_form.humidity_max }}
-                                                        <div class="form-text">Notification will trigger above this humidity</div>
+                                                        <div class="form-text">{% trans "Notification will trigger above this humidity" %}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -313,18 +314,18 @@
                                         <div class="col-md-6">
                                             <div class="card mb-4">
                                                 <div class="card-header bg-primary text-white">
-                                                    <i class="bi bi-cloud me-2"></i> Air Quality Settings
+                                                    <i class="bi bi-cloud me-2"></i> {% trans "Air Quality Settings" %}
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="mb-3">
-                                                        <label for="id_co2_max" class="form-label">Maximum CO2 Level (ppm)</label>
+                                                        <label for="id_co2_max" class="form-label">{% trans "Maximum CO2 Level" %} (ppm)</label>
                                                         {{ threshold_form.co2_max }}
-                                                        <div class="form-text">Notification will trigger above this concentration</div>
+                                                        <div class="form-text">{% trans "Notification will trigger above this concentration" %}</div>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="id_aqi_max" class="form-label">Maximum AQI</label>
+                                                        <label for="id_aqi_max" class="form-label">{% trans "Maximum AQI" %}</label>
                                                         {{ threshold_form.aqi_max }}
-                                                        <div class="form-text">Notification will trigger above this AQI value</div>
+                                                        <div class="form-text">{% trans "Notification will trigger above this AQI value" %}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -333,18 +334,18 @@
                                         <div class="col-md-6">
                                             <div class="card mb-4">
                                                 <div class="card-header bg-primary text-white">
-                                                    <i class="bi bi-exclamation-triangle me-2"></i> Particulate Matter Settings
+                                                    <i class="bi bi-exclamation-triangle me-2"></i> {% trans "Particulate Matter Settings" %}
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="mb-3">
-                                                        <label for="id_pm25_max" class="form-label">Maximum PM2.5 Level (μg/m³)</label>
+                                                        <label for="id_pm25_max" class="form-label">{% trans "Maximum PM2.5 Level" %} (μg/m³)</label>
                                                         {{ threshold_form.pm25_max }}
-                                                        <div class="form-text">Notification will trigger above this concentration</div>
+                                                        <div class="form-text">{% trans "Notification will trigger above this concentration" %}</div>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="id_pm10_max" class="form-label">Maximum PM10 Level (μg/m³)</label>
+                                                        <label for="id_pm10_max" class="form-label">{% trans "Maximum PM10 Level" %} (μg/m³)</label>
                                                         {{ threshold_form.pm10_max }}
-                                                        <div class="form-text">Notification will trigger above this concentration</div>
+                                                        <div class="form-text">{% trans "Notification will trigger above this concentration" %}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -353,48 +354,48 @@
                                     
                                     <div class="alert alert-info mb-4">
                                         <i class="bi bi-info-circle-fill me-2"></i>
-                                        These thresholds are for your personal notification settings only and won't affect dashboard displays or other users.
+                                        {% trans "These thresholds are for your personal notification settings only and won't affect dashboard displays or other users." %}
                                     </div>
                                     
-                                    <button type="submit" name="threshold_submit" class="btn btn-primary">Save Threshold Settings</button>
+                                    <button type="submit" name="threshold_submit" class="btn btn-primary">{% trans "Save Threshold Settings" %}</button>
                                 </form>
                             </div>
                             
                             <!-- Account Details Tab -->
                             <div class="tab-pane fade" id="account-content" role="tabpanel" aria-labelledby="account-tab">
-                                <h5 class="border-bottom pb-2 mb-4">Account Information</h5>
+                                <h5 class="border-bottom pb-2 mb-4">{% trans "Account Information" %}</h5>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <tbody>
                                             <tr>
-                                                <th scope="row" style="width: 30%;">Username</th>
+                                                <th scope="row" style="width: 30%;">{% trans "Username" %}</th>
                                                 <td>{{ user.username }}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Email</th>
-                                                <td>{{ user.email|default:"Not provided" }}</td>
+                                                <th scope="row">{% trans "Email" %}</th>
+                                                <td>{{ user.email|default:_("Not provided") }}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Full Name</th>
+                                                <th scope="row">{% trans "Full Name" %}</th>
                                                 <td>
                                                     {% if user.first_name or user.last_name %}
                                                         {{ user.first_name }} {{ user.last_name }}
                                                     {% else %}
-                                                        Not provided
+                                                        {% trans "Not provided" %}
                                                     {% endif %}
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Last Login</th>
+                                                <th scope="row">{% trans "Last Login" %}</th>
                                                 <td>{{ user.last_login|date:"F j, Y, g:i a" }}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Date Joined</th>
+                                                <th scope="row">{% trans "Date Joined" %}</th>
                                                 <td>{{ user.date_joined|date:"F j, Y, g:i a" }}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Staff Status</th>
-                                                <td>{% if user.is_staff %}Yes{% else %}No{% endif %}</td>
+                                                <th scope="row">{% trans "Staff Status" %}</th>
+                                                <td>{% if user.is_staff %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -467,12 +468,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const testEmailBtn = document.getElementById('testEmailBtn');
     const testEmailResult = document.getElementById('testEmailResult');
     const resultAlert = testEmailResult.querySelector('.alert');
-    
+    const sendTestEmailText = "{% trans 'Send Test Email' %}";
+    const sendingText = "{% trans 'Sending...' %}";
+    const requestErrorText = "{% trans 'Request error: ' %}";
+
     if (testEmailBtn) {
         testEmailBtn.addEventListener('click', function() {
             // Disable button and show loading state
             testEmailBtn.disabled = true;
-            testEmailBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+            testEmailBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> ${sendingText}`;
             
             // Hide previous results
             testEmailResult.style.display = 'none';
@@ -499,17 +503,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Restore button state
                 testEmailBtn.disabled = false;
-                testEmailBtn.innerHTML = '<i class="bi bi-envelope me-2"></i>Send Test Email';
+                testEmailBtn.innerHTML = `<i class="bi bi-envelope me-2"></i>${sendTestEmailText}`;
             })
             .catch(error => {
                 // Show error
                 resultAlert.className = 'alert alert-danger';
-                resultAlert.textContent = 'Request error: ' + error.message;
+                resultAlert.textContent = requestErrorText + error.message;
                 testEmailResult.style.display = 'block';
                 
                 // Restore button state
                 testEmailBtn.disabled = false;
-                testEmailBtn.innerHTML = '<i class="bi bi-envelope me-2"></i>Send Test Email';
+                testEmailBtn.innerHTML = `<i class="bi bi-envelope me-2"></i>${sendTestEmailText}`;
             });
         });
     }
@@ -581,19 +585,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkApiKeyBtn = document.getElementById('checkApiKeyBtn');
     const apiKeyInput = document.getElementById('id_api_key');
     const apiKeyStatus = document.getElementById('apiKeyStatus');
+    const checkConnectionText = "{% trans 'Check Connection' %}";
+    const checkingText = "{% trans 'Checking...' %}";
+    const checkingConnectionText = "{% trans 'Checking connection...' %}";
+    const enterApiKeyText = "{% trans 'Please enter an API Key.' %}";
+    const requestErrorGeneralText = "{% trans 'Request error. Please try again later.' %}";
 
     if (checkApiKeyBtn && apiKeyInput && apiKeyStatus) {
         checkApiKeyBtn.addEventListener('click', function() {
             const apiKey = apiKeyInput.value.trim();
             if (!apiKey) {
-                apiKeyStatus.innerHTML = '<span class="text-warning">Please enter an API Key.</span>';
+                apiKeyStatus.innerHTML = `<span class="text-warning">${enterApiKeyText}</span>`;
                 return;
             }
 
             // Show loading state
             checkApiKeyBtn.disabled = true;
-            checkApiKeyBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Checking...';
-            apiKeyStatus.innerHTML = '<span class="text-muted">Checking connection...</span>';
+            checkApiKeyBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> ${checkingText}`;
+            apiKeyStatus.innerHTML = `<span class="text-muted">${checkingConnectionText}</span>`;
 
             // Send request to backend
             fetch('{% url "check_api_key" %}', { // Use Django url template tag
@@ -606,6 +615,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => response.json())
             .then(data => {
+                // Assuming data.message from backend is already translated or an identifier
                 if (data.status === 'success') {
                     apiKeyStatus.innerHTML = `<span class="text-success"><i class="bi bi-check-circle-fill me-1"></i> ${data.message}</span>`;
                 } else if (data.status === 'invalid') {
@@ -615,13 +625,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .catch(error => {
-                apiKeyStatus.innerHTML = '<span class="text-danger">Request error. Please try again later.</span>';
+                apiKeyStatus.innerHTML = `<span class="text-danger">${requestErrorGeneralText}</span>`;
                 console.error('Error checking API key:', error);
             })
             .finally(() => {
                 // Restore button state
                 checkApiKeyBtn.disabled = false;
-                checkApiKeyBtn.innerHTML = 'Check Connection';
+                checkApiKeyBtn.innerHTML = checkConnectionText;
             });
         });
     }

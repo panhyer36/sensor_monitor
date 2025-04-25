@@ -1,0 +1,3102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-25 16:13-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: templates/accounts/analyze.html:48
+msgid "Air Quality Analysis"
+msgstr ""
+
+#: templates/accounts/analyze.html:58
+msgid "Current Air Quality"
+msgstr ""
+
+#: templates/accounts/analyze.html:67
+msgid "CO₂"
+msgstr ""
+
+#: templates/accounts/analyze.html:82 templates/sensor_api/export_data.html:98
+msgid "Humidity"
+msgstr ""
+
+#: templates/accounts/analyze.html:97 templates/sensor_api/export_data.html:92
+msgid "Temperature"
+msgstr ""
+
+#: templates/accounts/analyze.html:112 templates/accounts/home.html:218
+#: templates/sensor_api/export_data.html:112
+msgid "PM1.0"
+msgstr ""
+
+#: templates/accounts/analyze.html:127 templates/accounts/home.html:219
+#: templates/sensor_api/export_data.html:120
+msgid "PM2.5"
+msgstr ""
+
+#: templates/accounts/analyze.html:142 templates/accounts/home.html:220
+#: templates/sensor_api/export_data.html:126
+msgid "PM10"
+msgstr ""
+
+#: templates/accounts/analyze.html:166
+msgid "Recommendations"
+msgstr ""
+
+#: templates/accounts/analyze.html:188
+msgid "Today"
+msgstr ""
+
+#: templates/accounts/analyze.html:193
+msgid "This Week"
+msgstr ""
+
+#: templates/accounts/analyze.html:198
+msgid "This Month"
+msgstr ""
+
+#: templates/accounts/analyze.html:207
+msgid "Today's Air Quality Overview"
+msgstr ""
+
+#: templates/accounts/analyze.html:213
+msgid "Air Composition"
+msgstr ""
+
+#: templates/accounts/analyze.html:215
+msgid "Today's average CO₂ concentration is"
+msgstr ""
+
+#: templates/accounts/analyze.html:216
+msgid "reaching a peak of"
+msgstr ""
+
+#: templates/accounts/analyze.html:217 templates/accounts/analyze.html:248
+#: templates/accounts/analyze.html:261
+msgid "and a low of"
+msgstr ""
+
+#: templates/accounts/analyze.html:219
+msgid ""
+"Overall, today's CO₂ concentration is very poor, indicating poor "
+"ventilation. Immediate action is needed."
+msgstr ""
+
+#: templates/accounts/analyze.html:221
+msgid ""
+"Overall, today's CO₂ concentration is poor, suggesting the need to increase "
+"indoor ventilation frequency."
+msgstr ""
+
+#: templates/accounts/analyze.html:223
+msgid ""
+"CO₂ concentration is within moderate range, but it's recommended to "
+"regularly ventilate."
+msgstr ""
+
+#: templates/accounts/analyze.html:225
+msgid ""
+"CO₂ concentration is in a good range, indicating adequate air circulation."
+msgstr ""
+
+#: templates/accounts/analyze.html:228 templates/accounts/analyze.html:641
+msgid "Particle matter, PM2.5 average is"
+msgstr ""
+
+#: templates/accounts/analyze.html:229 templates/accounts/analyze.html:642
+msgid "PM10 average is"
+msgstr ""
+
+#: templates/accounts/analyze.html:231
+msgid ""
+"Air quality is very unhealthy, suggesting reducing outdoor activities and "
+"using an air purifier indoors."
+msgstr ""
+
+#: templates/accounts/analyze.html:233
+msgid ""
+"Air quality is unhealthy, sensitive groups should avoid outdoor activities."
+msgstr ""
+
+#: templates/accounts/analyze.html:235
+msgid ""
+"Air quality is moderate, sensitive groups should pay attention to protection."
+msgstr ""
+
+#: templates/accounts/analyze.html:237
+msgid "Particle matter content is low, air quality is good."
+msgstr ""
+
+#: templates/accounts/analyze.html:244
+msgid "Temperature and Humidity Environment"
+msgstr ""
+
+#: templates/accounts/analyze.html:246
+msgid "Today's average indoor temperature is"
+msgstr ""
+
+#: templates/accounts/analyze.html:247 templates/accounts/analyze.html:260
+msgid "reaching a high of"
+msgstr ""
+
+#: templates/accounts/analyze.html:250
+msgid ""
+"Overall temperature is very hot, which may affect comfort, health and work "
+"efficiency severely."
+msgstr ""
+
+#: templates/accounts/analyze.html:252
+msgid "Temperature is hot, which may affect comfort and work efficiency."
+msgstr ""
+
+#: templates/accounts/analyze.html:254
+msgid "Indoor temperature is cold, please pay attention to heating."
+msgstr ""
+
+#: templates/accounts/analyze.html:256
+msgid ""
+"Temperature is maintained in a comfortable range, which is beneficial for "
+"work and rest."
+msgstr ""
+
+#: templates/accounts/analyze.html:259
+msgid "Humidity, average humidity is"
+msgstr ""
+
+#: templates/accounts/analyze.html:263
+msgid ""
+"Humidity is very high, which may lead to mold growth and affect health, it's "
+"recommended to use dehumidifier."
+msgstr ""
+
+#: templates/accounts/analyze.html:265
+msgid "Humidity is high, consider using a dehumidifier to improve comfort."
+msgstr ""
+
+#: templates/accounts/analyze.html:267
+msgid ""
+"Air is too dry, which may cause skin discomfort and respiratory issues, it's "
+"recommended to add humidity appropriately."
+msgstr ""
+
+#: templates/accounts/analyze.html:269
+msgid ""
+"Humidity is maintained at a comfortable level, which is good for health."
+msgstr ""
+
+#: templates/accounts/analyze.html:278
+msgid "Today's Summary"
+msgstr ""
+
+#: templates/accounts/analyze.html:279
+msgid "Today's overall air quality"
+msgstr ""
+
+#: templates/accounts/analyze.html:281 templates/accounts/analyze.html:484
+#: templates/accounts/home.html:234
+msgid "Poor"
+msgstr ""
+
+#: templates/accounts/analyze.html:283 templates/accounts/analyze.html:486
+msgid "Average"
+msgstr ""
+
+#: templates/accounts/analyze.html:285 templates/accounts/analyze.html:488
+#: templates/accounts/home.html:35 templates/accounts/home.html:221
+msgid "Good"
+msgstr ""
+
+#: templates/accounts/analyze.html:287 templates/accounts/analyze.html:490
+msgid "and indoor comfort"
+msgstr ""
+
+#: templates/accounts/analyze.html:289 templates/accounts/analyze.html:492
+msgid "Needs Attention"
+msgstr ""
+
+#: templates/accounts/analyze.html:291 templates/accounts/analyze.html:494
+#: templates/accounts/home.html:228
+msgid "Comfortable"
+msgstr ""
+
+#: templates/accounts/analyze.html:293
+msgid "The special thing is"
+msgstr ""
+
+#: templates/accounts/analyze.html:295
+msgid "CO₂ fluctuation is large"
+msgstr ""
+
+#: templates/accounts/analyze.html:297
+msgid "Temperature change is obvious"
+msgstr ""
+
+#: templates/accounts/analyze.html:299
+msgid "Humidity change is large"
+msgstr ""
+
+#: templates/accounts/analyze.html:301
+msgid "PM2.5 change is significant"
+msgstr ""
+
+#: templates/accounts/analyze.html:303
+msgid "All indicators are stable"
+msgstr ""
+
+#: templates/accounts/analyze.html:304
+msgid "This indicates"
+msgstr ""
+
+#: templates/accounts/analyze.html:306
+msgid ""
+"Indoor personnel activity or ventilation situation has changed significantly"
+msgstr ""
+
+#: templates/accounts/analyze.html:308
+msgid "Temperature control system may need to be adjusted"
+msgstr ""
+
+#: templates/accounts/analyze.html:310
+msgid "Indoor and outdoor humidity exchange is frequent"
+msgstr ""
+
+#: templates/accounts/analyze.html:312
+msgid "External pollution source may be affecting"
+msgstr ""
+
+#: templates/accounts/analyze.html:314
+msgid "Environment conditions are stable and controllable"
+msgstr ""
+
+#: templates/accounts/analyze.html:323
+msgid "Time Period Analysis"
+msgstr ""
+
+#: templates/accounts/analyze.html:327
+msgid "Which time period has the poorest air quality?"
+msgstr ""
+
+#: templates/accounts/analyze.html:337
+#, python-format
+msgid "Poorest Air Quality Period: <strong>%(slot_name)s</strong>"
+msgstr ""
+
+#: templates/accounts/analyze.html:338
+#, python-format
+msgid ""
+"During this period, the average CO₂ level is <span class=\"fw-bold\">"
+"%(avg_co2)s ppm</span> and PM2.5 is <span class=\"fw-bold\">%(avg_pm2_5)s μg/"
+"m³</span>."
+msgstr ""
+
+#: templates/accounts/analyze.html:341 templates/accounts/analyze.html:535
+#: templates/accounts/analyze.html:703
+msgid "High CO₂"
+msgstr ""
+
+#: templates/accounts/analyze.html:344 templates/accounts/analyze.html:538
+#: templates/accounts/analyze.html:706
+msgid "High PM2.5"
+msgstr ""
+
+#: templates/accounts/analyze.html:346 templates/accounts/analyze.html:540
+#: templates/accounts/analyze.html:708
+msgid "Elevated PM2.5"
+msgstr ""
+
+#: templates/accounts/analyze.html:353
+msgid "Not enough data to determine poorest air quality period for today."
+msgstr ""
+
+#: templates/accounts/analyze.html:358
+msgid "Hourly Breakdown"
+msgstr ""
+
+#: templates/accounts/analyze.html:363 templates/accounts/analyze.html:726
+msgid "Period"
+msgstr ""
+
+#: templates/accounts/analyze.html:364 templates/accounts/analyze.html:559
+#: templates/accounts/analyze.html:727
+msgid "CO₂ (ppm)"
+msgstr ""
+
+#: templates/accounts/analyze.html:365 templates/accounts/analyze.html:560
+#: templates/accounts/analyze.html:728
+msgid "PM2.5 (μg/m³)"
+msgstr ""
+
+#: templates/accounts/analyze.html:366 templates/accounts/analyze.html:561
+#: templates/accounts/analyze.html:729
+msgid "Temp (°C)"
+msgstr ""
+
+#: templates/accounts/analyze.html:367 templates/accounts/analyze.html:562
+#: templates/accounts/analyze.html:730 templates/accounts/home.html:216
+#, python-format
+msgid "Humidity (%%)"
+msgstr ""
+
+#: templates/accounts/analyze.html:368
+msgid "Data Points"
+msgstr ""
+
+#: templates/accounts/analyze.html:382 templates/accounts/analyze.html:391
+#: templates/accounts/analyze.html:400 templates/accounts/analyze.html:409
+#: templates/accounts/analyze.html:578 templates/accounts/analyze.html:587
+#: templates/accounts/analyze.html:596 templates/accounts/analyze.html:605
+#: templates/accounts/analyze.html:746 templates/accounts/analyze.html:755
+#: templates/accounts/analyze.html:764 templates/accounts/analyze.html:773
+msgid "No data"
+msgstr ""
+
+#: templates/accounts/analyze.html:432
+msgid "This Week's Air Quality Trend"
+msgstr ""
+
+#: templates/accounts/analyze.html:438
+msgid "Week Data Analysis"
+msgstr ""
+
+#: templates/accounts/analyze.html:441
+msgid "This week's average CO₂ concentration is"
+msgstr ""
+
+#: templates/accounts/analyze.html:443
+#, python-format
+msgid ""
+"Higher than weekly average<span class=\"text-danger\"> by %(diff)s points</"
+"span>,"
+msgstr ""
+
+#: templates/accounts/analyze.html:445
+#, python-format
+msgid ""
+"Lower than weekly average<span class=\"text-success\"> by %(diff)s points</"
+"span>,"
+msgstr ""
+
+#: templates/accounts/analyze.html:447
+msgid "Same as weekly average<span class=\"text-info\">unchanged</span>,"
+msgstr ""
+
+#: templates/accounts/analyze.html:449
+#, python-format
+msgid ""
+"This week's peak value reached <span class=\"fw-bold\">%(max_co2)s ppm</"
+"span>."
+msgstr ""
+
+#: templates/accounts/analyze.html:451
+msgid "This week's PM2.5 particle matter average concentration is"
+msgstr ""
+
+#: templates/accounts/analyze.html:452
+msgid "PM10 average concentration is"
+msgstr ""
+
+#: templates/accounts/analyze.html:454
+msgid ""
+"Current particle matter concentration is higher than weekly average, "
+"suggesting the need to pay attention to air quality changes."
+msgstr ""
+
+#: templates/accounts/analyze.html:456
+msgid ""
+"Current particle matter concentration is better than weekly average, "
+"indicating air quality has improved."
+msgstr ""
+
+#: templates/accounts/analyze.html:464
+msgid "Week Environment Comfort Analysis"
+msgstr ""
+
+#: templates/accounts/analyze.html:467
+msgid "This week's average temperature is maintained at"
+msgstr ""
+
+#: templates/accounts/analyze.html:468
+#, python-format
+msgid ""
+"Week temperature difference is large, from <span class=\"fw-bold\">"
+"%(min_temp)s°C</span> to <span class=\"fw-bold\">%(max_temp)s°C</span>, \n"
+"                                    Temperature fluctuation may affect "
+"environment comfort."
+msgstr ""
+
+#: templates/accounts/analyze.html:471
+msgid "Week average humidity is"
+msgstr ""
+
+#: templates/accounts/analyze.html:472
+#, python-format
+msgid ""
+"Week humidity is maintained between <span class=\"fw-bold\">%(min_hum)s%%</"
+"span> and <span class=\"fw-bold\">%(max_hum)s%%</span>, \n"
+"                                    Relative stable humidity helps maintain "
+"environment stability."
+msgstr ""
+
+#: templates/accounts/analyze.html:481
+msgid "Week Trend Analysis"
+msgstr ""
+
+#: templates/accounts/analyze.html:482
+msgid "This week's air quality"
+msgstr ""
+
+#: templates/accounts/analyze.html:496
+msgid "Compared with current data,"
+msgstr ""
+
+#: templates/accounts/analyze.html:498
+msgid "today's air quality <span class=\"text-success\">improved</span>"
+msgstr ""
+
+#: templates/accounts/analyze.html:500
+msgid ""
+"today's air quality <span class=\"text-danger\">slightly decreased</span>"
+msgstr ""
+
+#: templates/accounts/analyze.html:502
+msgid ""
+"today's air quality <span class=\"text-info\">change is not large</span>"
+msgstr ""
+
+#: templates/accounts/analyze.html:504
+msgid "Overall,"
+msgstr ""
+
+#: templates/accounts/analyze.html:506
+msgid ""
+"it's recommended to increase ventilation frequency and consider using air "
+"purification equipment"
+msgstr ""
+
+#: templates/accounts/analyze.html:508
+msgid ""
+"it's recommended to maintain environment ventilation and pay attention to "
+"air quality changes"
+msgstr ""
+
+#: templates/accounts/analyze.html:510
+msgid ""
+"currently, the air quality in the environment is maintained well, it's "
+"recommended to maintain the existing management method"
+msgstr ""
+
+#: templates/accounts/analyze.html:518
+msgid "Daily Air Quality Analysis"
+msgstr ""
+
+#: templates/accounts/analyze.html:522
+msgid "Which day has the poorest air quality?"
+msgstr ""
+
+#: templates/accounts/analyze.html:531
+#, python-format
+msgid "Poorest Air Quality Day: <strong>%(day_name)s</strong> (%(day_date)s)"
+msgstr ""
+
+#: templates/accounts/analyze.html:532
+#, python-format
+msgid ""
+"On this day, the average CO₂ level was <span class=\"fw-bold\">%(avg_co2)s "
+"ppm</span> and PM2.5 was <span class=\"fw-bold\">%(avg_pm2_5)s μg/m³</span>."
+msgstr ""
+
+#: templates/accounts/analyze.html:547
+msgid "Not enough data to determine poorest air quality day for this week."
+msgstr ""
+
+#: templates/accounts/analyze.html:552
+msgid "Past 7 Days Breakdown"
+msgstr ""
+
+#: templates/accounts/analyze.html:557
+msgid "Day"
+msgstr ""
+
+#: templates/accounts/analyze.html:558
+msgid "Date"
+msgstr ""
+
+#: templates/accounts/analyze.html:563 templates/accounts/analyze.html:731
+msgid "Readings"
+msgstr ""
+
+#: templates/accounts/analyze.html:613
+msgid "No data available for the past 7 days"
+msgstr ""
+
+#: templates/accounts/analyze.html:632
+msgid "This Month's Environment Quality Review"
+msgstr ""
+
+#: templates/accounts/analyze.html:637
+msgid "Monthly Environment Overview"
+msgstr ""
+
+#: templates/accounts/analyze.html:640
+msgid ""
+"Over the past 30 days, the average CO₂ concentration in the indoor "
+"environment has been maintained at"
+msgstr ""
+
+#: templates/accounts/analyze.html:643
+msgid "These data show that the indoor air quality over the past month"
+msgstr ""
+
+#: templates/accounts/analyze.html:645
+msgid ""
+"Overall performance <span class=\"text-danger fw-bold\">Poor</span>, It's "
+"recommended to re-evaluate air management strategy"
+msgstr ""
+
+#: templates/accounts/analyze.html:647
+msgid ""
+"Overall performance <span class=\"text-warning fw-bold\">Average</span>, "
+"There is room for improvement"
+msgstr ""
+
+#: templates/accounts/analyze.html:649
+msgid ""
+"Overall performance <span class=\"text-success fw-bold\">Good</span>, Meet "
+"health standards"
+msgstr ""
+
+#: templates/accounts/analyze.html:652
+msgid "Temperature and humidity, monthly average temperature is"
+msgstr ""
+
+#: templates/accounts/analyze.html:653
+msgid "average humidity is"
+msgstr ""
+
+#: templates/accounts/analyze.html:654
+msgid "This environment condition"
+msgstr ""
+
+#: templates/accounts/analyze.html:656
+msgid ""
+"May <span class=\"text-warning fw-bold\">Not Comfortable</span>, It will "
+"affect indoor activities and health"
+msgstr ""
+
+#: templates/accounts/analyze.html:658
+msgid ""
+"May be <span class=\"text-warning fw-bold\">Slightly Uncomfortable</span> "
+"for some people"
+msgstr ""
+
+#: templates/accounts/analyze.html:660
+msgid ""
+"Overall <span class=\"text-success fw-bold\">Comfortable and Suitable</"
+"span>, It's suitable for long-term indoor activities"
+msgstr ""
+
+#: templates/accounts/analyze.html:668
+msgid "Long-term Trend Assessment"
+msgstr ""
+
+#: templates/accounts/analyze.html:669
+msgid "Compared with today's data, the air quality over the past 30 days"
+msgstr ""
+
+#: templates/accounts/analyze.html:671
+msgid ""
+"Present <span class=\"text-success fw-bold\">Improved Trend</span>, "
+"Indicating Effective Air Quality Management Measures"
+msgstr ""
+
+#: templates/accounts/analyze.html:673
+msgid ""
+"Present <span class=\"text-danger fw-bold\">Worsening Trend</span>, Need to "
+"Pay Attention to Factors Causing Air Quality Decline"
+msgstr ""
+
+#: templates/accounts/analyze.html:675
+msgid ""
+"Basic <span class=\"text-info fw-bold\">Maintain Stability</span>, No "
+"Significant Changes"
+msgstr ""
+
+#: templates/accounts/analyze.html:678
+msgid ""
+"Long-term, good indoor air quality management should include regular "
+"ventilation, appropriate air purification, and timely adjustment of "
+"environment control system. In seasonal changes, more attention should be "
+"paid to indoor and outdoor temperature and humidity differences, timely "
+"adjustment of air conditioning and ventilation system parameters, to obtain "
+"the best indoor environment quality."
+msgstr ""
+
+#: templates/accounts/analyze.html:686
+msgid "Weekly Air Quality Analysis"
+msgstr ""
+
+#: templates/accounts/analyze.html:690
+msgid "Which week has the poorest air quality?"
+msgstr ""
+
+#: templates/accounts/analyze.html:699
+#, python-format
+msgid ""
+"Poorest Air Quality Week: <strong>%(start_date)s - %(end_date)s</strong>"
+msgstr ""
+
+#: templates/accounts/analyze.html:700
+#, python-format
+msgid ""
+"During this week, the average CO₂ level was <span class=\"fw-bold\">"
+"%(avg_co2)s ppm</span> and PM2.5 was <span class=\"fw-bold\">%(avg_pm2_5)s "
+"μg/m³</span>."
+msgstr ""
+
+#: templates/accounts/analyze.html:715
+msgid "Not enough data to determine poorest air quality week for this month."
+msgstr ""
+
+#: templates/accounts/analyze.html:720
+msgid "Monthly Week Breakdown"
+msgstr ""
+
+#: templates/accounts/analyze.html:725
+msgid "Week"
+msgstr ""
+
+#: templates/accounts/analyze.html:781
+msgid "No data available for the past 4 weeks"
+msgstr ""
+
+#: templates/accounts/analyze.html:801
+msgid ""
+"No sensor data is currently available. Please ensure your sensors are "
+"functioning properly and connected."
+msgstr ""
+
+#: templates/accounts/home.html:7
+msgid "Sensor Monitoring Dashboard"
+msgstr ""
+
+#: templates/accounts/home.html:8 templates/accounts/home.html:212
+msgid "Last Update Time:"
+msgstr ""
+
+#: templates/accounts/home.html:8 templates/accounts/home.html:42
+#: templates/accounts/home.html:43 templates/accounts/home.html:69
+#: templates/accounts/home.html:70 templates/accounts/home.html:73
+#: templates/accounts/home.html:74 templates/accounts/home.html:95
+#: templates/accounts/home.html:96 templates/accounts/home.html:117
+#: templates/accounts/home.html:118 templates/accounts/home.html:121
+#: templates/accounts/home.html:122 templates/accounts/home.html:125
+#: templates/accounts/home.html:126 templates/accounts/home.html:211
+msgid "Loading..."
+msgstr ""
+
+#: templates/accounts/home.html:14
+msgid "Last 1 Hour"
+msgstr ""
+
+#: templates/accounts/home.html:15 templates/sensor_api/export_data.html:43
+msgid "Last 24 Hours"
+msgstr ""
+
+#: templates/accounts/home.html:16 templates/sensor_api/export_data.html:49
+msgid "Last 7 Days"
+msgstr ""
+
+#: templates/accounts/home.html:17 templates/sensor_api/export_data.html:55
+msgid "Last 30 Days"
+msgstr ""
+
+#: templates/accounts/home.html:21 templates/sensor_api/export_data.html:138
+msgid "Export Data"
+msgstr ""
+
+#: templates/accounts/home.html:33 templates/accounts/home.html:35
+msgid "Air Quality Index (AQI)"
+msgstr ""
+
+#: templates/accounts/home.html:35
+msgid "A standardized indicator of air pollution levels."
+msgstr ""
+
+#: templates/accounts/home.html:35 templates/accounts/home.html:59
+#: templates/accounts/home.html:88 templates/accounts/home.html:108
+msgid "Health Effects:"
+msgstr ""
+
+#: templates/accounts/home.html:35
+msgid "Little to no health risk"
+msgstr ""
+
+#: templates/accounts/home.html:35 templates/accounts/home.html:222
+msgid "Moderate"
+msgstr ""
+
+#: templates/accounts/home.html:35
+msgid "Acceptable for most"
+msgstr ""
+
+#: templates/accounts/home.html:35
+msgid "Unhealthy for sensitive groups"
+msgstr ""
+
+#: templates/accounts/home.html:35
+msgid "Unhealthy for everyone"
+msgstr ""
+
+#: templates/accounts/home.html:35
+msgid "Very unhealthy"
+msgstr ""
+
+#: templates/accounts/home.html:35 templates/accounts/home.html:226
+msgid "Hazardous"
+msgstr ""
+
+#: templates/accounts/home.html:35 templates/accounts/home.html:59
+#: templates/accounts/home.html:88 templates/accounts/home.html:108
+msgid "Normal Range:"
+msgstr ""
+
+#: templates/accounts/home.html:35
+msgid "0-50 is considered good"
+msgstr ""
+
+#: templates/accounts/home.html:42
+msgid "AQI:"
+msgstr ""
+
+#: templates/accounts/home.html:53
+msgid "Temperature and Humidity"
+msgstr ""
+
+#: templates/accounts/home.html:55
+msgid "Toggle temperature unit"
+msgstr ""
+
+#: templates/accounts/home.html:59
+msgid "Temperature & Humidity"
+msgstr ""
+
+#: templates/accounts/home.html:59
+msgid "Key indicators of indoor comfort and air quality."
+msgstr ""
+
+#: templates/accounts/home.html:59
+msgid "Temperature extremes can cause discomfort, stress, and health issues"
+msgstr ""
+
+#: templates/accounts/home.html:59
+#, python-format
+msgid ""
+"Low humidity (below 30%%) can cause dry skin, irritation of mucous membranes"
+msgstr ""
+
+#: templates/accounts/home.html:59
+#, python-format
+msgid "High humidity (above 60%%) can promote mold growth"
+msgstr ""
+
+#: templates/accounts/home.html:59
+msgid "Temperature:"
+msgstr ""
+
+#: templates/accounts/home.html:59 templates/accounts/home.html:73
+msgid "Humidity:"
+msgstr ""
+
+#: templates/accounts/home.html:69
+msgid "Temp:"
+msgstr ""
+
+#: templates/accounts/home.html:86 templates/accounts/home.html:88
+msgid "CO2 Concentration"
+msgstr ""
+
+#: templates/accounts/home.html:88
+msgid "Carbon dioxide levels in the air."
+msgstr ""
+
+#: templates/accounts/home.html:88
+msgid "Normal outdoor/indoor levels"
+msgstr ""
+
+#: templates/accounts/home.html:88
+msgid "May cause drowsiness and poor air quality complaints"
+msgstr ""
+
+#: templates/accounts/home.html:88
+msgid "Headaches, sleepiness, poor concentration"
+msgstr ""
+
+#: templates/accounts/home.html:88
+msgid "Rapid breathing, increased heart rate, potential toxicity"
+msgstr ""
+
+#: templates/accounts/home.html:88
+msgid "Below 1,000 ppm for good indoor air quality"
+msgstr ""
+
+#: templates/accounts/home.html:95
+msgid "CO2:"
+msgstr ""
+
+#: templates/accounts/home.html:106
+msgid "PM1.0/PM2.5/PM10 Concentration"
+msgstr ""
+
+#: templates/accounts/home.html:108
+msgid "Particulate Matter (PM)"
+msgstr ""
+
+#: templates/accounts/home.html:108
+msgid "Tiny particles suspended in the air."
+msgstr ""
+
+#: templates/accounts/home.html:108
+msgid "PM1.0: Can penetrate deep into lungs and bloodstream"
+msgstr ""
+
+#: templates/accounts/home.html:108
+msgid "PM2.5: Can cause respiratory and cardiovascular issues"
+msgstr ""
+
+#: templates/accounts/home.html:108
+msgid "PM10: Can irritate eyes, nose, and throat"
+msgstr ""
+
+#: templates/accounts/home.html:108
+msgid ""
+"Long-term exposure linked to reduced lung function, chronic bronchitis, and "
+"premature death."
+msgstr ""
+
+#: templates/accounts/home.html:108
+msgid "PM2.5: Below 12 μg/m³ (annual average)"
+msgstr ""
+
+#: templates/accounts/home.html:108
+msgid "PM10: Below 50 μg/m³ (24-hour average)"
+msgstr ""
+
+#: templates/accounts/home.html:117
+msgid "PM1.0:"
+msgstr ""
+
+#: templates/accounts/home.html:121
+msgid "PM2.5:"
+msgstr ""
+
+#: templates/accounts/home.html:125
+msgid "PM10:"
+msgstr ""
+
+#: templates/accounts/home.html:213
+msgid "AQI"
+msgstr ""
+
+#: templates/accounts/home.html:214
+msgid "Temperature (°C)"
+msgstr ""
+
+#: templates/accounts/home.html:215
+msgid "Temperature (°F)"
+msgstr ""
+
+#: templates/accounts/home.html:217
+msgid "CO2 (ppm)"
+msgstr ""
+
+#: templates/accounts/home.html:223
+msgid "Unhealthy for Sensitive Groups"
+msgstr ""
+
+#: templates/accounts/home.html:224
+msgid "Unhealthy"
+msgstr ""
+
+#: templates/accounts/home.html:225
+msgid "Very Unhealthy"
+msgstr ""
+
+#: templates/accounts/home.html:227
+msgid "Cold"
+msgstr ""
+
+#: templates/accounts/home.html:229
+msgid "Hot"
+msgstr ""
+
+#: templates/accounts/home.html:230
+msgid "Very Hot"
+msgstr ""
+
+#: templates/accounts/home.html:231
+msgid "Dry"
+msgstr ""
+
+#: templates/accounts/home.html:232
+msgid "Humid"
+msgstr ""
+
+#: templates/accounts/home.html:233
+msgid "Very Humid"
+msgstr ""
+
+#: templates/accounts/home.html:235
+msgid "Very Poor"
+msgstr ""
+
+#: templates/accounts/home.html:236
+msgid "No data available for selected time range"
+msgstr ""
+
+#: templates/accounts/home.html:237 templates/accounts/home.html:238
+msgid "Error loading sensor data. Please try again later."
+msgstr ""
+
+#: templates/accounts/login.html:9
+msgid "User Login"
+msgstr ""
+
+#: templates/accounts/login.html:15 templates/accounts/profile.html:371
+#: templates/accounts/register.html:15
+msgid "Username"
+msgstr ""
+
+#: templates/accounts/login.html:19 templates/accounts/register.html:44
+msgid "Password"
+msgstr ""
+
+#: templates/accounts/login.html:22 templates/base.html:177
+msgid "Login"
+msgstr ""
+
+#: templates/accounts/login.html:25
+msgid "Don't have an account?"
+msgstr ""
+
+#: templates/accounts/login.html:25
+msgid "Register now"
+msgstr ""
+
+#: templates/accounts/profile.html:9
+msgid "User Profile"
+msgstr ""
+
+#: templates/accounts/profile.html:20
+msgid "Member since"
+msgstr ""
+
+#: templates/accounts/profile.html:24
+msgid "Profile Information"
+msgstr ""
+
+#: templates/accounts/profile.html:27 templates/accounts/profile.html:155
+msgid "Change Username"
+msgstr ""
+
+#: templates/accounts/profile.html:30 templates/accounts/profile.html:209
+msgid "Change Password"
+msgstr ""
+
+#: templates/accounts/profile.html:33 templates/accounts/profile.html:215
+msgid "Notification Settings"
+msgstr ""
+
+#: templates/accounts/profile.html:36
+msgid "Threshold Settings"
+msgstr ""
+
+#: templates/accounts/profile.html:39 templates/accounts/profile.html:366
+msgid "Account Information"
+msgstr ""
+
+#: templates/accounts/profile.html:47
+msgid "Update Profile Information"
+msgstr ""
+
+#: templates/accounts/profile.html:51
+msgid "First Name"
+msgstr ""
+
+#: templates/accounts/profile.html:62
+msgid "Last Name"
+msgstr ""
+
+#: templates/accounts/profile.html:73 templates/accounts/profile.html:375
+msgid "Email"
+msgstr ""
+
+#: templates/accounts/profile.html:83
+msgid "Update Profile"
+msgstr ""
+
+#: templates/accounts/profile.html:88
+msgid "API Key Configuration"
+msgstr ""
+
+#: templates/accounts/profile.html:94
+msgid "Get DeepSeek API Key"
+msgstr ""
+
+#: templates/accounts/profile.html:95
+msgid "Get Key"
+msgstr ""
+
+#: templates/accounts/profile.html:100 templates/accounts/profile.html:588
+msgid "Check Connection"
+msgstr ""
+
+#: templates/accounts/profile.html:114
+msgid "Save API Key"
+msgstr ""
+
+#: templates/accounts/profile.html:121
+msgid "Change Your Username"
+msgstr ""
+
+#: templates/accounts/profile.html:124
+msgid "Note:"
+msgstr ""
+
+#: templates/accounts/profile.html:124
+msgid ""
+"Changing your username may affect how you log in and how others identify you "
+"in the system."
+msgstr ""
+
+#: templates/accounts/profile.html:129
+msgid "Current Username"
+msgstr ""
+
+#: templates/accounts/profile.html:133
+msgid "New Username"
+msgstr ""
+
+#: templates/accounts/profile.html:143
+msgid ""
+"Usernames can only contain letters, numbers, and the characters @, ., +, -, "
+"and _"
+msgstr ""
+
+#: templates/accounts/profile.html:161
+msgid "Change Your Password"
+msgstr ""
+
+#: templates/accounts/profile.html:165
+msgid "Current Password"
+msgstr ""
+
+#: templates/accounts/profile.html:176
+msgid "New Password"
+msgstr ""
+
+#: templates/accounts/profile.html:186
+msgid ""
+"Password must contain at least 8 characters and cannot be entirely numeric."
+msgstr ""
+
+#: templates/accounts/profile.html:190
+msgid "Confirm New Password"
+msgstr ""
+
+#: templates/accounts/profile.html:221
+msgid "Receive Email Notifications"
+msgstr ""
+
+#: templates/accounts/profile.html:231
+msgid ""
+"You haven't set an email address yet. Please add an email address in your <a "
+"href=\"#profile-content\" data-bs-toggle=\"pill\" aria-controls=\"profile-"
+"content\" aria-selected=\"true\">Profile Information</a> to receive "
+"notifications."
+msgstr ""
+
+#: templates/accounts/profile.html:235
+msgid "Save Settings"
+msgstr ""
+
+#: templates/accounts/profile.html:240
+msgid "Test Email Notification"
+msgstr ""
+
+#: templates/accounts/profile.html:241
+msgid ""
+"Send a test email to your inbox to verify that notification settings are "
+"working properly."
+msgstr ""
+
+#: templates/accounts/profile.html:244 templates/accounts/profile.html:471
+msgid "Send Test Email"
+msgstr ""
+
+#: templates/accounts/profile.html:254
+msgid "Sensor Threshold Settings"
+msgstr ""
+
+#: templates/accounts/profile.html:256
+msgid ""
+"Set notification thresholds for each sensor. You will be notified when data "
+"exceeds your set ranges."
+msgstr ""
+
+#: templates/accounts/profile.html:266
+msgid "Temperature Settings"
+msgstr ""
+
+#: templates/accounts/profile.html:279
+msgid "Minimum Temperature"
+msgstr ""
+
+#: templates/accounts/profile.html:281
+msgid "Notification will trigger below this temperature"
+msgstr ""
+
+#: templates/accounts/profile.html:284
+msgid "Maximum Temperature"
+msgstr ""
+
+#: templates/accounts/profile.html:286
+msgid "Notification will trigger above this temperature"
+msgstr ""
+
+#: templates/accounts/profile.html:295
+msgid "Humidity Settings"
+msgstr ""
+
+#: templates/accounts/profile.html:299
+msgid "Minimum Humidity"
+msgstr ""
+
+#: templates/accounts/profile.html:301
+msgid "Notification will trigger below this humidity"
+msgstr ""
+
+#: templates/accounts/profile.html:304
+msgid "Maximum Humidity"
+msgstr ""
+
+#: templates/accounts/profile.html:306
+msgid "Notification will trigger above this humidity"
+msgstr ""
+
+#: templates/accounts/profile.html:317
+msgid "Air Quality Settings"
+msgstr ""
+
+#: templates/accounts/profile.html:321
+msgid "Maximum CO2 Level"
+msgstr ""
+
+#: templates/accounts/profile.html:323 templates/accounts/profile.html:343
+#: templates/accounts/profile.html:348
+msgid "Notification will trigger above this concentration"
+msgstr ""
+
+#: templates/accounts/profile.html:326
+msgid "Maximum AQI"
+msgstr ""
+
+#: templates/accounts/profile.html:328
+msgid "Notification will trigger above this AQI value"
+msgstr ""
+
+#: templates/accounts/profile.html:337
+msgid "Particulate Matter Settings"
+msgstr ""
+
+#: templates/accounts/profile.html:341
+msgid "Maximum PM2.5 Level"
+msgstr ""
+
+#: templates/accounts/profile.html:346
+msgid "Maximum PM10 Level"
+msgstr ""
+
+#: templates/accounts/profile.html:357
+msgid ""
+"These thresholds are for your personal notification settings only and won't "
+"affect dashboard displays or other users."
+msgstr ""
+
+#: templates/accounts/profile.html:360
+msgid "Save Threshold Settings"
+msgstr ""
+
+#: templates/accounts/profile.html:376 templates/accounts/profile.html:384
+msgid "Not provided"
+msgstr ""
+
+#: templates/accounts/profile.html:379
+msgid "Full Name"
+msgstr ""
+
+#: templates/accounts/profile.html:389
+msgid "Last Login"
+msgstr ""
+
+#: templates/accounts/profile.html:393
+msgid "Date Joined"
+msgstr ""
+
+#: templates/accounts/profile.html:397
+msgid "Staff Status"
+msgstr ""
+
+#: templates/accounts/profile.html:398
+#: venv/lib/python3.11/site-packages/django/forms/widgets.py:867
+msgid "Yes"
+msgstr ""
+
+#: templates/accounts/profile.html:398
+#: venv/lib/python3.11/site-packages/django/forms/widgets.py:868
+msgid "No"
+msgstr ""
+
+#: templates/accounts/profile.html:472 templates/chatbot/deepseek_chat.html:122
+msgid "Sending..."
+msgstr ""
+
+#: templates/accounts/profile.html:473
+msgid "Request error: "
+msgstr ""
+
+#: templates/accounts/profile.html:589
+msgid "Checking..."
+msgstr ""
+
+#: templates/accounts/profile.html:590
+msgid "Checking connection..."
+msgstr ""
+
+#: templates/accounts/profile.html:591
+msgid "Please enter an API Key."
+msgstr ""
+
+#: templates/accounts/profile.html:592
+msgid "Request error. Please try again later."
+msgstr ""
+
+#: templates/accounts/register.html:9
+msgid "User Registration"
+msgstr ""
+
+#: templates/accounts/register.html:29
+msgid "Email (Optional)"
+msgstr ""
+
+#: templates/accounts/register.html:31
+msgid "Used for system notifications and important alerts"
+msgstr ""
+
+#: templates/accounts/register.html:58
+msgid "Confirm Password"
+msgstr ""
+
+#: templates/accounts/register.html:73
+msgid "Error!"
+msgstr ""
+
+#: templates/accounts/register.html:80 templates/base.html:182
+msgid "Register"
+msgstr ""
+
+#: templates/accounts/register.html:83
+msgid "Already have an account?"
+msgstr ""
+
+#: templates/accounts/register.html:83
+msgid "Login now"
+msgstr ""
+
+#: templates/accounts/report_issue.html:10
+msgid "Report an Issue"
+msgstr ""
+
+#: templates/accounts/report_issue.html:17
+msgid ""
+"Your feedback helps us improve the system. Please provide as much detail as "
+"possible."
+msgstr ""
+
+#: templates/accounts/report_issue.html:21
+msgid "Issue Title*"
+msgstr ""
+
+#: templates/accounts/report_issue.html:34
+msgid "Issue Type*"
+msgstr ""
+
+#: templates/accounts/report_issue.html:44
+msgid "Description*"
+msgstr ""
+
+#: templates/accounts/report_issue.html:57
+msgid "Contact Email (Optional)"
+msgstr ""
+
+#: templates/accounts/report_issue.html:71
+#: templates/sensor_api/export_data.html:135
+msgid "Cancel"
+msgstr ""
+
+#: templates/accounts/report_issue.html:74
+msgid "Submit Report"
+msgstr ""
+
+#: templates/base.html:8
+msgid "AMI Sensor System"
+msgstr ""
+
+#: templates/base.html:129
+msgid "AMI Logo"
+msgstr ""
+
+#: templates/base.html:133
+msgid "Welcome,"
+msgstr ""
+
+#: templates/base.html:144
+msgid "Report Issue"
+msgstr ""
+
+#: templates/base.html:149
+msgid "Chatbot"
+msgstr ""
+
+#: templates/base.html:154
+msgid "Analyze"
+msgstr ""
+
+#: templates/base.html:159
+msgid "Profile"
+msgstr ""
+
+#: templates/base.html:165
+msgid "Admin Panel"
+msgstr ""
+
+#: templates/base.html:171
+msgid "Logout"
+msgstr ""
+
+#: templates/base.html:240
+msgid "Close"
+msgstr ""
+
+#: templates/chatbot/chatbot.html:10
+msgid "AI Chatbot Assistant"
+msgstr ""
+
+#: templates/chatbot/chatbot.html:15
+msgid "Hello! I'm your AMI System assistant. How can I help you today?"
+msgstr ""
+
+#: templates/chatbot/chatbot.html:20
+msgid "Ask me something in English..."
+msgstr ""
+
+#: templates/chatbot/chatbot.html:22 templates/chatbot/deepseek_chat.html:25
+#: templates/chatbot/deepseek_chat.html:123
+msgid "Send"
+msgstr ""
+
+#: templates/chatbot/chatbot.html:25
+msgid ""
+"Try asking about system features, sensor data, or type 'help' for more "
+"options."
+msgstr ""
+
+#: templates/chatbot/chatbot.html:30
+msgid "Suggested questions:"
+msgstr ""
+
+#: templates/chatbot/chatbot.html:35
+msgid "Show more questions"
+msgstr ""
+
+#: templates/chatbot/chatbot.html:41
+msgid "Try DeepSeek Chat!"
+msgstr ""
+
+#: templates/chatbot/chatbot.html:43
+msgid ""
+"For more complex questions! It can also interact with real-time sensor data "
+"(e.g., query current temperature, CO2 levels, or AQI) and even control the "
+"system. Try our more powerful DeepSeek Chat!"
+msgstr ""
+
+#: templates/chatbot/chatbot.html:48
+msgid "Connect to DeepSeek Chat"
+msgstr ""
+
+#: templates/chatbot/chatbot.html:62
+msgid "Sorry, I encountered an error. Please try again later."
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:10
+msgid "DeepSeek Chat"
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:12
+#: venv/lib/python3.11/site-packages/django/forms/widgets.py:527
+msgid "Clear"
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:18
+msgid "You are connected to DeepSeek. It can use tools when needed."
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:23
+msgid "Send a message to DeepSeek..."
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:124
+#, python-brace-format
+msgid "Pruned local chat history to last {count} messages."
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:125
+msgid "Sending history:"
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:126
+#, python-brace-format
+msgid "Model requested {count} tool calls:"
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:127
+#, python-brace-format
+msgid "Calling tools #{index}:"
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:128
+msgid "Parameters:"
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:129
+msgid "Results:"
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:130
+msgid "Error:"
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:131
+msgid "Unknown error"
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:132
+msgid "Sorry, there was a network error connecting to the DeepSeek service."
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:133
+msgid "Are you sure you want to clear the chat history?"
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:134
+msgid "Chat history cleared."
+msgstr ""
+
+#: templates/chatbot/deepseek_chat.html:135
+msgid "Chat history has been cleared."
+msgstr ""
+
+#: templates/sensor_api/export_data.html:10
+msgid "Export Sensor Data"
+msgstr ""
+
+#: templates/sensor_api/export_data.html:23
+msgid "Export Format"
+msgstr ""
+
+#: templates/sensor_api/export_data.html:27
+msgid "CSV (Comma Separated Values)"
+msgstr ""
+
+#: templates/sensor_api/export_data.html:33
+msgid "JSON (JavaScript Object Notation)"
+msgstr ""
+
+#: templates/sensor_api/export_data.html:39
+msgid "Time Range"
+msgstr ""
+
+#: templates/sensor_api/export_data.html:61
+msgid "Custom Date Range"
+msgstr ""
+
+#: templates/sensor_api/export_data.html:69
+msgid "Start Date"
+msgstr ""
+
+#: templates/sensor_api/export_data.html:73
+msgid "End Date"
+msgstr ""
+
+#: templates/sensor_api/export_data.html:80
+msgid "Sensor Types"
+msgstr ""
+
+#: templates/sensor_api/export_data.html:84
+msgid "All Sensors"
+msgstr ""
+
+#: templates/sensor_api/export_data.html:106
+msgid "CO2"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/_termui_impl.py:556
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/_termui_impl.py:560
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:1124
+#: venv/lib/python3.11/site-packages/typer/core.py:248
+msgid "Aborted!"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:1349
+#: venv/lib/python3.11/site-packages/click/core.py:1379
+#, python-brace-format
+msgid "(Deprecated) {text}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:1396
+#: venv/lib/python3.11/site-packages/typer/core.py:591
+#: venv/lib/python3.11/site-packages/typer/rich_utils.py:93
+msgid "Options"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:1422
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:1438
+msgid "DeprecationWarning: The command {name!r} is deprecated."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:1645
+#: venv/lib/python3.11/site-packages/typer/rich_utils.py:94
+msgid "Commands"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:1677
+msgid "Missing command."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:1755
+msgid "No such command {name!r}."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:2313
+msgid "Value must be an iterable."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:2334
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:2783
+#: venv/lib/python3.11/site-packages/typer/core.py:530
+#, python-brace-format
+msgid "env var: {var}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:2813
+#: venv/lib/python3.11/site-packages/typer/core.py:117
+msgid "(dynamic)"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:2828
+#: venv/lib/python3.11/site-packages/typer/core.py:365
+#: venv/lib/python3.11/site-packages/typer/core.py:551
+#, python-brace-format
+msgid "default: {default}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/core.py:2841
+#: venv/lib/python3.11/site-packages/typer/core.py:367
+#: venv/lib/python3.11/site-packages/typer/core.py:560
+msgid "required"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/decorators.py:457
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/decorators.py:520
+msgid "Show the version and exit."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/decorators.py:541
+msgid "Show this message and exit."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:49
+#: venv/lib/python3.11/site-packages/click/exceptions.py:88
+#, python-brace-format
+msgid "Error: {message}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:80
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:129
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:131
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:187
+msgid "Missing argument"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:189
+msgid "Missing option"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:191
+msgid "Missing parameter"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:193
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:200
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:220
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:232
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:270
+msgid "unknown error"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/exceptions.py:277
+msgid "Could not open file {filename!r}: {message}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/parser.py:233
+msgid "Argument {name!r} takes {nargs} values."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/parser.py:415
+msgid "Option {name!r} does not take a value."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/parser.py:476
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/click/shell_completion.py:326
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/shell_completion.py:333
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/termui.py:158
+msgid "Repeat for confirmation"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/termui.py:174
+msgid "Error: The value you entered was invalid."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/termui.py:176
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/termui.py:187
+msgid "Error: The two entered values do not match."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/termui.py:243
+msgid "Error: invalid input"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/termui.py:773
+msgid "Press any key to continue..."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:267
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:299
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:393
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:415
+msgid "{value!r} is not a valid {number_type}."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:471
+#, python-brace-format
+msgid "{value} is not in the range {range}."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:612
+msgid "{value!r} is not a valid boolean."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:636
+msgid "{value!r} is not a valid UUID."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:826
+msgid "file"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:828
+msgid "directory"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:830
+msgid "path"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:881
+msgid "{name} {filename!r} does not exist."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:890
+msgid "{name} {filename!r} is a file."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:898
+msgid "{name} {filename!r} is a directory."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:907
+msgid "{name} {filename!r} is not readable."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:916
+msgid "{name} {filename!r} is not writable."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:925
+msgid "{name} {filename!r} is not executable."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/click/types.py:992
+#, python-brace-format
+msgid "{len_type} values are required, but {len_value} was given."
+msgid_plural "{len_type} values are required, but {len_value} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/contrib/messages/apps.py:16
+msgid "Messages"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/contrib/sitemaps/apps.py:8
+msgid "Site Maps"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/contrib/staticfiles/apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/contrib/syndication/apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: venv/lib/python3.11/site-packages/django/core/paginator.py:30
+msgid "…"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/paginator.py:32
+msgid "That page number is not an integer"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/paginator.py:33
+msgid "That page number is less than 1"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/paginator.py:34
+msgid "That page contains no results"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:22
+msgid "Enter a valid value."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:70
+msgid "Enter a valid domain name."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:153
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:775
+msgid "Enter a valid URL."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:200
+msgid "Enter a valid integer."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:211
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: venv/lib/python3.11/site-packages/django/core/validators.py:289
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:297
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:309
+#: venv/lib/python3.11/site-packages/django/core/validators.py:318
+#: venv/lib/python3.11/site-packages/django/core/validators.py:332
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2220
+#, python-format
+msgid "Enter a valid %(protocol)s address."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:311
+msgid "IPv4"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:320
+#: venv/lib/python3.11/site-packages/django/utils/ipv6.py:43
+msgid "IPv6"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:334
+msgid "IPv4 or IPv6"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:375
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:381
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:416
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:425
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:434
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:441
+#, python-format
+msgid ""
+"Ensure this value is a multiple of step size %(limit_value)s, starting from "
+"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:473
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:491
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:514
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:366
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:405
+msgid "Enter a number."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:516
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:521
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:526
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:597
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/core/validators.py:659
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/base.py:1600
+#: venv/lib/python3.11/site-packages/django/forms/models.py:908
+msgid "and"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/base.py:1602
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/constraints.py:22
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:134
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:135
+msgid "This field cannot be null."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:136
+msgid "This field cannot be blank."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:137
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:141
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:180
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1162
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1163
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1165
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1215
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1217
+msgid "String (unlimited)"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1326
+msgid "Comma-separated integers"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1427
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1431
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1566
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1435
+msgid "Date (without time)"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1562
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1570
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1575
+msgid "Date (with time)"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1702
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1704
+msgid "Decimal number"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1864
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
+"uuuuuu] format."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1868
+msgid "Duration"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1920
+msgid "Email address"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:1945
+msgid "File path"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2023
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2025
+msgid "Floating point number"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2065
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2067
+msgid "Integer"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2163
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2180
+msgid "Small integer"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2188
+msgid "IPv4 address"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2219
+msgid "IP address"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2310
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2311
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2313
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2364
+msgid "Positive big integer"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2379
+msgid "Positive integer"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2394
+msgid "Positive small integer"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2410
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2446
+msgid "Text"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2526
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2530
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2534
+msgid "Time"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2642
+msgid "URL"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2666
+msgid "Raw binary data"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2731
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/__init__.py:2733
+msgid "Universally unique identifier"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/files.py:244
+msgid "File"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/files.py:420
+msgid "Image"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/json.py:24
+msgid "A JSON object"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/json.py:26
+msgid "Value must be valid JSON."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/related.py:978
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/related.py:981
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/related.py:1275
+msgid "One-to-one relationship"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/related.py:1332
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/related.py:1334
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/db/models/fields/related.py:1382
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: venv/lib/python3.11/site-packages/django/forms/boundfield.py:185
+msgid ":?.!"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:95
+msgid "This field is required."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:315
+msgid "Enter a whole number."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:486
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:1267
+msgid "Enter a valid date."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:509
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:1268
+msgid "Enter a valid time."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:536
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:570
+msgid "Enter a valid duration."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:571
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:640
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:641
+msgid "No file was submitted."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:642
+msgid "The submitted file is empty."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:644
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:649
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:717
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:889
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:975
+#: venv/lib/python3.11/site-packages/django/forms/models.py:1592
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:977
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:1096
+#: venv/lib/python3.11/site-packages/django/forms/models.py:1590
+msgid "Enter a list of values."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:1097
+msgid "Enter a complete value."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:1339
+msgid "Enter a valid UUID."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/fields.py:1369
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: venv/lib/python3.11/site-packages/django/forms/forms.py:97
+msgid ":"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/forms.py:239
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/formsets.py:61
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/formsets.py:65
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/forms/formsets.py:70
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/forms/formsets.py:484
+#: venv/lib/python3.11/site-packages/django/forms/formsets.py:491
+msgid "Order"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/formsets.py:499
+msgid "Delete"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/models.py:901
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/models.py:906
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/models.py:913
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/models.py:922
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/models.py:1359
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/models.py:1450
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/models.py:1594
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/utils.py:229
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/widgets.py:528
+msgid "Currently"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/widgets.py:529
+msgid "Change"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/forms/widgets.py:866
+msgid "Unknown"
+msgstr ""
+
+#. Translators: Please do not add spaces around commas.
+#: venv/lib/python3.11/site-packages/django/template/defaultfilters.py:873
+msgid "yes,no,maybe"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/template/defaultfilters.py:903
+#: venv/lib/python3.11/site-packages/django/template/defaultfilters.py:920
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/template/defaultfilters.py:922
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/template/defaultfilters.py:924
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/template/defaultfilters.py:926
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/template/defaultfilters.py:928
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/template/defaultfilters.py:930
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dateformat.py:74
+msgid "p.m."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dateformat.py:75
+msgid "a.m."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dateformat.py:80
+msgid "PM"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dateformat.py:81
+msgid "AM"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dateformat.py:153
+msgid "midnight"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dateformat.py:155
+msgid "noon"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:7
+msgid "Monday"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:8
+msgid "Tuesday"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:9
+msgid "Wednesday"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:10
+msgid "Thursday"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:11
+msgid "Friday"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:12
+msgid "Saturday"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:13
+msgid "Sunday"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:16
+msgid "Mon"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:17
+msgid "Tue"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:18
+msgid "Wed"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:19
+msgid "Thu"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:20
+msgid "Fri"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:21
+msgid "Sat"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:22
+msgid "Sun"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:25
+msgid "January"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:26
+msgid "February"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:27
+msgid "March"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:28
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:29
+msgid "May"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:30
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:31
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:32
+msgid "August"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:33
+msgid "September"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:34
+msgid "October"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:35
+msgid "November"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:36
+msgid "December"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:39
+msgid "jan"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:40
+msgid "feb"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:41
+msgid "mar"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:42
+msgid "apr"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:43
+msgid "may"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:44
+msgid "jun"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:45
+msgid "jul"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:46
+msgid "aug"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:47
+msgid "sep"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:48
+msgid "oct"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:49
+msgid "nov"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:50
+msgid "dec"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/ipv6.py:20
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/text.py:67
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/text.py:278
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: venv/lib/python3.11/site-packages/django/utils/text.py:297
+#: venv/lib/python3.11/site-packages/django/utils/timesince.py:135
+msgid ", "
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/utils/timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/utils/timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/utils/timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/utils/timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/utils/timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/utils/timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.11/site-packages/django/views/csrf.py:29
+msgid "Forbidden"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/csrf.py:30
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/csrf.py:34
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/csrf.py:40
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/csrf.py:45
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a rel=\"noreferrer"
+"\" …> for links to third-party sites."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/csrf.py:54
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/csrf.py:60
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/csrf.py:66
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/dates.py:44
+msgid "No year specified"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/dates.py:64
+#: venv/lib/python3.11/site-packages/django/views/generic/dates.py:115
+#: venv/lib/python3.11/site-packages/django/views/generic/dates.py:214
+msgid "Date out of range"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/dates.py:94
+msgid "No month specified"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/dates.py:147
+msgid "No day specified"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/dates.py:194
+msgid "No week specified"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/dates.py:353
+#: venv/lib/python3.11/site-packages/django/views/generic/dates.py:384
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/dates.py:680
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/dates.py:720
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/generic/list.py:173
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/static.py:49
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/static.py:51
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/static.py:68
+#: venv/lib/python3.11/site-packages/django/views/templates/directory_index.html:8
+#: venv/lib/python3.11/site-packages/django/views/templates/directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/templates/default_urlconf.html:7
+#: venv/lib/python3.11/site-packages/django/views/templates/default_urlconf.html:204
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/templates/default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/templates/default_urlconf.html:208
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
+"\">DEBUG=True</a> is in your settings file and you have not configured any "
+"URLs."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/templates/default_urlconf.html:217
+msgid "Django Documentation"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/templates/default_urlconf.html:218
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/templates/default_urlconf.html:226
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/templates/default_urlconf.html:227
+msgid "Get started with Django"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/templates/default_urlconf.html:235
+msgid "Django Community"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/django/views/templates/default_urlconf.html:236
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/passlib/ext/django/utils.py:1000
+msgid "algorithm"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/typer/core.py:588
+#: venv/lib/python3.11/site-packages/typer/rich_utils.py:92
+msgid "Arguments"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/typer/rich_utils.py:86
+msgid "(deprecated) "
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/typer/rich_utils.py:87
+msgid "[default: {}]"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/typer/rich_utils.py:88
+msgid "[env var: {}]"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/typer/rich_utils.py:90
+msgid "[required]"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/typer/rich_utils.py:95
+msgid "Error"
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/typer/rich_utils.py:96
+msgid "Aborted."
+msgstr ""
+
+#: venv/lib/python3.11/site-packages/typer/rich_utils.py:97
+#, python-brace-format
+msgid "Try [blue]'{command_path} {help_option}'[/] for help."
+msgstr ""

@@ -38,3 +38,6 @@ Thumbs.db
 
 # Django local settings (if used)
 local_settings.py 
+
+# Cursor rules
+*.mdc
