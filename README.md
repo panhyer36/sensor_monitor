@@ -23,7 +23,7 @@ Air Monitoring Interface System is a sensor data monitoring platform used by a t
 
 ## Installation and Running
 
-1.  **Clone Repository**:
+1.  **Clone the repository:**
     ```bash
     git clone https://github.com/panhyer36/sensor_monitor.git
     cd sensor_monitor
@@ -41,10 +41,15 @@ Air Monitoring Interface System is a sensor data monitoring platform used by a t
     pip install django djangorestframework python-dotenv mcp mcpo openai # Other dependencies might be needed
     ```
 
-4.  **Database Migration**:
-    ```bash
-    python manage.py migrate
+4.  **Set up environment variables:**
+    Create a `.env` file in the project root directory (same level as `manage.py`) and add the following variables:
+    ```dotenv
+    EMAIL_HOST_USER=your_email@gmail.com
+    EMAIL_HOST_PASSWORD=your_app_password
     ```
+    *   Replace `your_email@gmail.com` with your Gmail address.
+    *   Replace `your_app_password` with your Gmail App Password. See Google's documentation for [how to create an App Password](https://support.google.com/accounts/answer/185833?hl=en).
+    **Important:** Ensure the `.env` file is added to your `.gitignore` to prevent committing sensitive credentials.
 
 5.  **Create Admin User**:
     You can use the provided script:
@@ -56,11 +61,7 @@ Air Monitoring Interface System is a sensor data monitoring platform used by a t
     python manage.py createsuperuser
     ```
 
-6.  **Configure Google Mail API Key**
-    (You will need to set up API credentials in `config/settings.py`)
-
-7.  **Run Development Server**:
-    You need to run two processes, preferably in separate terminals:
+6.  **Run the development server:**
     ```bash
     # Terminal 1: Run Django development server
     python manage.py runserver

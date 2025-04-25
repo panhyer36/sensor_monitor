@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -169,11 +173,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'EMAIL_HOST_USER'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 # Note: Here you need to use Google's "application-specific password" instead of a regular password
 # Please follow the steps below to generate an application-specific password:
 # 1. Visit https://myaccount.google.com/security
 # 2. Click on "App passwords" in the two-step verification page
 # 3. Generate a password and replace the password below
-EMAIL_HOST_PASSWORD = 'Replace with the application-specific password'  # Replace with the application-specific password
-DEFAULT_FROM_EMAIL = 'AMI Sensor Monitoring <EMAIL_HOST_USER>'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = f"AMI Sensor Monitoring <{os.getenv('EMAIL_HOST_USER')}>"
