@@ -55,7 +55,11 @@
     ```
 
 6.  **配置 Google Mail API 密钥**
-    （您需要在 `config/settings.py` 中设置 API 凭据）
+    （您需要在 `.env` 中设置 API 凭据）
+    ```
+    EMAIL_HOST_USER=your_email@gmail.com
+    EMAIL_HOST_PASSWORD=your_app_password
+    ```
 
 7.  **运行开发服务器**：
     您需要运行两个进程，最好在不同的终端中：
