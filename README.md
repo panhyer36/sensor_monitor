@@ -1,3 +1,5 @@
+[简体中文](README.zh-cn.md)
+
 # AMI System (UWM Capstone Project)
 
 Air Monitoring Interface System is a sensor data monitoring platform used by a team for the UWM Capstone Project. It is a Django-based web application used to receive, store, visualize, and export data from various environmental sensors.
