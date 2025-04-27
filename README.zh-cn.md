@@ -34,13 +34,13 @@
     ```
 
 3.  **安装依赖**：
-    项目目前缺少 `requirements.txt` 文件。您需要根据 `config/settings.py` 中的 `INSTALLED_APPS` 和代码中的 `import` 语句手动安装依赖项。关键依赖项包括：
     ```bash
-    pip install django djangorestframework python-dotenv mcp mcpo openai # 可能还需要其他依赖项
+    pip install -r requirements.txt
     ```
 
 4.  **数据库迁移**：
     ```bash
+    python manage.py makemigrations
     python manage.py migrate
     ```
 

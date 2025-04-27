@@ -36,9 +36,8 @@ Air Monitoring Interface System is a sensor data monitoring platform used by a t
     ```
 
 3.  **Install Dependencies**:
-    The project currently lacks a `requirements.txt` file. You need to manually install dependencies based on `INSTALLED_APPS` in `config/settings.py` and `import` statements in the code. Key dependencies include:
     ```bash
-    pip install django djangorestframework python-dotenv mcp mcpo openai # Other dependencies might be needed
+    pip install -r requirements.txt
     ```
 
 4.  **Set up environment variables:**
@@ -59,6 +58,10 @@ Air Monitoring Interface System is a sensor data monitoring platform used by a t
     Or use the Django command:
     ```bash
     python manage.py createsuperuser
+    ```
+    ```
+    python manage.py makemigrations
+    python manage.py migrate
     ```
 
 6.  **Run the development server:**
