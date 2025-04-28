@@ -148,7 +148,7 @@ def _create_issue_report_sync(reporter_username: str, title: str, description: s
 
 @sync_to_async
 def _get_user_profile_sync(username: str):
-    """Synchronously fetches User and UserProfile data."""
+    """Synchronously fetches User and UserProfile data. The Temperature units are in Celsius."""
     try:
         user = User.objects.select_related('profile').get(username=username)
         profile = user.profile
@@ -176,7 +176,7 @@ def _get_user_profile_sync(username: str):
 
 @sync_to_async
 def _update_user_profile_sync(username: str, updates: dict):
-    """Synchronously updates User and UserProfile data."""
+    """Synchronously updates User and UserProfile data. The Temperature units are in Celsius."""
     try:
         user = User.objects.select_related('profile').get(username=username)
         profile = user.profile
