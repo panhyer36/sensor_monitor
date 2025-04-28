@@ -21,6 +21,10 @@ Air Monitoring Interface System is a sensor data monitoring platform used by a t
 *   **Frontend**: HTML, CSS, JavaScript
 *   **AI Features**: MCP (Model Context Protocol technology, used for DeepSeek AI), Hybrid Strategy Answering technology (used for basic AI)
 
+## Live Demo without installation
+Access our production deployment directly without local installation:  
+[AMI System](https://ami.capstoneproject.top/)
+
 ## Installation and Running
 
 1.  **Clone the repository:**
@@ -50,7 +54,7 @@ Air Monitoring Interface System is a sensor data monitoring platform used by a t
     *   Replace `your_app_password` with your Gmail App Password. See Google's documentation for [how to create an App Password](https://support.google.com/accounts/answer/185833?hl=en).
     **Important:** Ensure the `.env` file is added to your `.gitignore` to prevent committing sensitive credentials.
 
-5.  **Create Admin User**:
+5.  **Create Admin User and migration the database**:
     You can use the provided script:
     ```bash
     python create_admin.py
