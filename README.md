@@ -21,6 +21,9 @@ Air Monitoring Interface System is a sensor data monitoring platform used by a t
 *   **Frontend**: HTML, CSS, JavaScript
 *   **AI Features**: MCP (Model Context Protocol technology, used for DeepSeek AI), Hybrid Strategy Answering technology (used for basic AI)
 
+## Guide
+![AMI Guide](https://youtu.be/bF8e-88Drjw)
+
 ## Live Demo without installation
 Access our production deployment directly without local installation:  
 [AMI System](https://ami.capstoneproject.top/)
