@@ -41,3 +41,7 @@ local_settings.py
 
 # Cursor rules
 *.mdc
+
+uv.lock
+pyproject.toml
+.python-version
