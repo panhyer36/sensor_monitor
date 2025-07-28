@@ -45,3 +45,9 @@ local_settings.py
 uv.lock
 pyproject.toml
 .python-version
+
+.gitignore
+CLAUDE.md
+
+結構圖.md
+sensor_data_generator.py
