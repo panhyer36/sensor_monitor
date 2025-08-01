@@ -2,7 +2,7 @@ import os
 import sys
 import django
 import asyncio
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 from typing import Any, Optional
 from django.utils.dateparse import parse_datetime
 from django.utils import timezone as django_timezone
@@ -234,7 +234,9 @@ def _update_user_profile_sync(username: str, updates: dict):
 
 @mcp.tool()
 async def get_latest_sensor_data() -> dict[str, Any]:
-    """Fetches the most recent sensor data entry from the database."""
+    """Fetches the most recent sensor data entry from the database.
+    
+    Note: Timestamps are returned with timezone information in ISO 8601 format (typically UTC)."""
     print("Executing get_latest_sensor_data tool...")
     try:
         latest_data = await _get_latest_sensor_data_sync()
@@ -255,29 +257,52 @@ async def get_latest_sensor_data() -> dict[str, Any]:
         return {"error": str(e)}
 
 @mcp.tool()
-async def get_sensor_data_summary(period_hours: int = 24) -> dict[str, Any]:
-    """Calculates summary statistics (avg, min, max) for sensor data over a specified period.
+async def get_sensor_data_summary(start_time_iso: str, end_time_iso: str) -> dict[str, Any]:
+    """Calculates summary statistics (avg, min, max) for sensor data within a specified time range.
 
     Args:
-        period_hours: The duration in hours to look back for data (default: 24).
-    """
-    print(f"Executing get_sensor_data_summary for the last {period_hours} hours...")
+        start_time_iso: The start timestamp in ISO 8601 format with timezone (e.g., '2023-10-27T10:00:00Z' or '2023-10-27T18:00:00+08:00'). REQUIRED with timezone info.
+        end_time_iso: The end timestamp in ISO 8601 format with timezone (e.g., '2023-10-27T12:00:00Z' or '2023-10-27T20:00:00+08:00'). REQUIRED with timezone info.
+    
+    Note: Timestamps without timezone info will be rejected. All returned timestamps include timezone info."""
     try:
-        end_time = django_timezone.now()
-        start_time = end_time - timedelta(hours=period_hours)
+        # Parse and validate start_time
+        start_time = parse_datetime(start_time_iso)
+        if not start_time:
+            return {"error": "Invalid ISO 8601 timestamp format provided for start_time_iso."}
+        if django_timezone.is_naive(start_time):
+            return {"error": "start_time_iso must include timezone information (e.g., '2023-10-27T10:00:00Z' or '2023-10-27T18:00:00+08:00')."}
+        
+        # Parse and validate end_time
+        end_time = parse_datetime(end_time_iso)
+        if not end_time:
+            return {"error": "Invalid ISO 8601 timestamp format provided for end_time_iso."}
+        if django_timezone.is_naive(end_time):
+            return {"error": "end_time_iso must include timezone information (e.g., '2023-10-27T12:00:00Z' or '2023-10-27T20:00:00+08:00')."}
+        
+        # Validate time range
+        if start_time >= end_time:
+            return {"error": "start_time must be earlier than end_time."}
+        
+        print(f"Executing get_sensor_data_summary from {start_time.isoformat()} to {end_time.isoformat()}...")
 
         summary, count = await _get_sensor_data_summary_sync(start_time, end_time)
         
         serializable_summary = {k: v if v is not None else None for k, v in summary.items()}
+        
+        # Calculate period in hours
+        period_hours = (end_time - start_time).total_seconds() / 3600
 
         if count > 0:
             return {
-                "period_hours": period_hours,
+                "start_time": start_time.isoformat(),
+                "end_time": end_time.isoformat(),
+                "period_hours": round(period_hours, 2),
                 "data_points": count,
                 "summary": serializable_summary
             }
         else:
-            return {"message": f"No sensor data found in the last {period_hours} hours."}
+            return {"message": f"No sensor data found between {start_time.isoformat()} and {end_time.isoformat()}."}
     except Exception as e:
         print(f"Error in get_sensor_data_summary: {e}")
         return {"error": str(e)}
@@ -287,9 +312,10 @@ async def get_sensor_data_in_range(start_time_iso: str, end_time_iso: str) -> di
     """Fetches all sensor data points within a specified ISO 8601 time range.
 
     Args:
-        start_time_iso: The start timestamp in ISO 8601 format (e.g., '2023-10-27T10:00:00Z').
-        end_time_iso: The end timestamp in ISO 8601 format (e.g., '2023-10-27T12:00:00Z').
-    """
+        start_time_iso: The start timestamp in ISO 8601 format with timezone (e.g., '2023-10-27T10:00:00Z' or '2023-10-27T18:00:00+08:00'). REQUIRED with timezone info.
+        end_time_iso: The end timestamp in ISO 8601 format with timezone (e.g., '2023-10-27T12:00:00Z' or '2023-10-27T20:00:00+08:00'). REQUIRED with timezone info.
+    
+    Note: Timestamps without timezone info will be rejected. All returned timestamps include timezone info."""
     print(f"Executing get_sensor_data_in_range from {start_time_iso} to {end_time_iso}...")
     try:
         start_time = parse_datetime(start_time_iso)
@@ -298,11 +324,11 @@ async def get_sensor_data_in_range(start_time_iso: str, end_time_iso: str) -> di
         if not start_time or not end_time:
             return {"error": "Invalid ISO 8601 timestamp format provided."}
 
-        # Make timestamps timezone-aware if they are naive, assuming UTC if no offset.
+        # Reject timezone-naive timestamps
         if django_timezone.is_naive(start_time):
-            start_time = django_timezone.make_aware(start_time, timezone.utc)
+            return {"error": "start_time_iso must include timezone information (e.g., '2023-10-27T10:00:00Z' or '2023-10-27T18:00:00+08:00')."}
         if django_timezone.is_naive(end_time):
-            end_time = django_timezone.make_aware(end_time, timezone.utc)
+            return {"error": "end_time_iso must include timezone information (e.g., '2023-10-27T12:00:00Z' or '2023-10-27T20:00:00+08:00')."}
 
         data_points = await _get_sensor_data_in_range_sync(start_time, end_time)
         count = len(data_points)
@@ -327,8 +353,9 @@ async def get_extreme_sensor_value(sensor_type: str, period_hours: int = 24) -> 
 
     Args:
         sensor_type: The sensor field name (e.g., 'temperature', 'humidity', 'co2', 'pm2_5').
-        period_hours: The duration in hours to look back for data (default: 24).
-    """
+        period_hours: The duration in hours to look back from current server time (default: 24).
+    
+    Note: The period is calculated from server's current time. All returned timestamps include timezone information."""
     print(f"Executing get_extreme_sensor_value for '{sensor_type}' in the last {period_hours} hours...")
     valid_sensor_types = [
         'temperature', 'humidity', 'co2', 'pm1_0', 'pm2_5', 'pm10_0'
@@ -375,8 +402,9 @@ async def get_recent_sensor_data(period_hours: int = 1) -> dict[str, Any]:
     """Fetches all sensor data points within the specified recent number of hours.
 
     Args:
-        period_hours: The number of hours to look back from the current time (default: 1).
-    """
+        period_hours: The number of hours to look back from the current server time (default: 1).
+    
+    Note: The period is calculated from server's current time. All returned timestamps include timezone information."""
     print(f"Executing get_recent_sensor_data for the last {period_hours} hours...")
     try:
         if period_hours <= 0:
@@ -405,8 +433,9 @@ async def count_sensor_data_points(period_hours: int = 24) -> dict[str, Any]:
     """Counts the number of sensor data points recorded within a specified period.
     
     Args:
-        period_hours: The duration in hours to look back for data (default: 24).
-    """
+        period_hours: The duration in hours to look back from current server time (default: 24).
+    
+    Note: The period is calculated from server's current time. All returned timestamps include timezone information."""
     print(f"Executing count_sensor_data_points for the last {period_hours} hours...")
     try:
         end_time = django_timezone.now()

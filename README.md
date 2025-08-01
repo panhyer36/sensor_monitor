@@ -24,9 +24,6 @@ Air Monitoring Interface System is a sensor data monitoring platform used by a t
 ## Guide
 [YouTube AMI Guide](https://youtu.be/bF8e-88Drjw)
 
-## Live Demo without installation
-Access our production deployment directly without local installation:  
-[AMI System](https://ami.capstoneproject.top/)
 
 ## Installation and Running
 

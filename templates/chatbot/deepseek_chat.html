@@ -231,11 +231,14 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(sendingHistoryText, historyToSend);
 
         try {
+            const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            
             const response = await fetch('{% url "chatbot:deepseek_api" %}', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': csrftoken
+                    'X-CSRFToken': csrftoken,
+                    'X-Timezone': userTimezone
                 },
                 body: JSON.stringify({ 
                     message: query, 

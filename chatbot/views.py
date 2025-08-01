@@ -11,6 +11,8 @@ import re
 from accounts.models import UserProfile
 import requests # Import requests
 from functools import lru_cache # For simple caching
+from django.utils import timezone
+import pytz
 from datetime import datetime
 
 # Simple FAQ dictionary
@@ -670,10 +672,27 @@ def deepseek_api_view(request):
         
         validated_history = validated_history[-MAX_HISTORY_MESSAGES:]
 
+        # === Get user timezone from request headers ===
+        user_timezone_str = request.META.get('HTTP_X_TIMEZONE')
+        if user_timezone_str:
+            try:
+                user_timezone = pytz.timezone(user_timezone_str)
+                current_time = datetime.now(user_timezone).strftime("%Y-%m-%d %H:%M:%S %Z")
+            except:
+                current_time = timezone.now().strftime("%Y-%m-%d %H:%M:%S %Z")
+        else:
+            current_time = timezone.now().strftime("%Y-%m-%d %H:%M:%S %Z")
+        
         # === Add System Prompt ===
-        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        user_timezone_info = f" (user's local timezone: {user_timezone_str})" if user_timezone_str else " (server timezone)"
         system_prompt = (
-            f"You are an intelligent assistant designed for the Air Monitoring Interface (AMI) system. The current date and time is {current_time}. Your primary role is to assist user '{current_username}' in querying real-time or historical sensor data, providing air quality related explanations, and managing user data (such as reporting issues, viewing, or updating personal settings). "
+            f"You are an intelligent assistant designed for the Air Monitoring Interface (AMI) system. The current date and time is {current_time}{user_timezone_info}. "
+            f"IMPORTANT TIMEZONE INSTRUCTIONS: "
+            f"- The user is currently in timezone '{user_timezone_str or 'server default'}'. ALL time-related queries and responses should be interpreted and presented in the user's timezone context. "
+            f"- When using time-based tools (get_sensor_data_summary, get_sensor_data_in_range), you MUST convert user's time references to proper ISO 8601 format with timezone information. "
+            f"- When presenting time data to the user, always consider their timezone context. If the user asks about 'yesterday', 'this morning', 'last week', etc., calculate these relative to their current local time. "
+            f"- Always include timezone information when calling time-based MCP tools. Use formats like '2023-10-27T10:00:00Z' (UTC) or '2023-10-27T18:00:00+08:00' (with timezone offset). "
+            f"Your primary role is to assist user '{current_username}' in querying real-time or historical sensor data, providing air quality related explanations, and managing user data (such as reporting issues, viewing, or updating personal settings). "
             f"When the user requests to query data or perform system operations, you should strive to use the available tools to provide accurate and timely information, and offer relevant analysis or suggestions based on the data. "
             f"Under all circumstances, you MUST ensure that all your actions are restricted to the current user '{current_username}'. When using tools such as 'report_issue', 'get_user_profile', or 'update_user_profile', you MUST and can ONLY act on behalf of user '{current_username}'. It is strictly forbidden to attempt to access or modify information for other users, or to impersonate others. If the user asks you to perform these actions for someone else, politely refuse and reiterate that you can only serve '{current_username}'. "
             f"Your responses should be clear, concise, professional, and helpful. If you cannot answer a specific question or perform an operation, please state so honestly and guide the user to ask a clearer question or provide alternative solutions. "
