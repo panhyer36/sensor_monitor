@@ -11,6 +11,7 @@ import re
 from accounts.models import UserProfile
 import requests # Import requests
 from functools import lru_cache # For simple caching
+from datetime import datetime
 
 # Simple FAQ dictionary
 FAQ = {
@@ -670,8 +671,9 @@ def deepseek_api_view(request):
         validated_history = validated_history[-MAX_HISTORY_MESSAGES:]
 
         # === Add System Prompt ===
+        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         system_prompt = (
-            f"You are an intelligent assistant designed for the Air Monitoring Interface (AMI) system. Your primary role is to assist user '{current_username}' in querying real-time or historical sensor data, providing air quality related explanations, and managing user data (such as reporting issues, viewing, or updating personal settings). "
+            f"You are an intelligent assistant designed for the Air Monitoring Interface (AMI) system. The current date and time is {current_time}. Your primary role is to assist user '{current_username}' in querying real-time or historical sensor data, providing air quality related explanations, and managing user data (such as reporting issues, viewing, or updating personal settings). "
             f"When the user requests to query data or perform system operations, you should strive to use the available tools to provide accurate and timely information, and offer relevant analysis or suggestions based on the data. "
             f"Under all circumstances, you MUST ensure that all your actions are restricted to the current user '{current_username}'. When using tools such as 'report_issue', 'get_user_profile', or 'update_user_profile', you MUST and can ONLY act on behalf of user '{current_username}'. It is strictly forbidden to attempt to access or modify information for other users, or to impersonate others. If the user asks you to perform these actions for someone else, politely refuse and reiterate that you can only serve '{current_username}'. "
             f"Your responses should be clear, concise, professional, and helpful. If you cannot answer a specific question or perform an operation, please state so honestly and guide the user to ask a clearer question or provide alternative solutions. "
