@@ -697,7 +697,7 @@ def deepseek_api_view(request):
             f"Under all circumstances, you MUST ensure that all your actions are restricted to the current user '{current_username}'. When using tools such as 'report_issue', 'get_user_profile', or 'update_user_profile', you MUST and can ONLY act on behalf of user '{current_username}'. It is strictly forbidden to attempt to access or modify information for other users, or to impersonate others. If the user asks you to perform these actions for someone else, politely refuse and reiterate that you can only serve '{current_username}'. "
             f"Your responses should be clear, concise, professional, and helpful. If you cannot answer a specific question or perform an operation, please state so honestly and guide the user to ask a clearer question or provide alternative solutions. "
             f"Please remember that your main goal is to provide assistance related to the AMI system's functionalities. For questions outside this scope, you may politely decline to answer or guide the user towards questions within the system's capabilities."
-            f"If the user asks about the system's purpose, features, Q&A, Standard of Air Quality, or how it works, you should use the tool to get the information, don't base your response on your hallucination."
+            f"If the user asks about the system's purpose, features, Q&A, or how it works, you should use the tool to get the information, don't base your response on your hallucination."
         )
         
         # Start conversation message list with system prompt, then history, then current user message
