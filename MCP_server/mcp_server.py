@@ -484,10 +484,8 @@ async def convert_temperature(value: float, from_unit: str) -> dict[str, Any]:
     }
 
 @mcp.tool()
-async def read_system_info() -> dict[str, Any]:
-    """Reads and returns the content of the AMIsystem.txt file, which contains an overview of the Air Monitoring Interface System and Model Context Protocol(MCP).
-    Use this tool if the user asks general questions about the system's purpose (AMI), features, or how it works.
-    """
+async def get_system_info() -> dict[str, Any]:
+    """Use this tool if the user asks the questions about the system's purpose, features, or how it works."""
     print("Executing read_system_info tool...")
     try:
         system_info_content = await _read_system_info_sync()
