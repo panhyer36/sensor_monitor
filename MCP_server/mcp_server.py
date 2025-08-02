@@ -485,7 +485,7 @@ async def convert_temperature(value: float, from_unit: str) -> dict[str, Any]:
 
 @mcp.tool()
 async def get_system_info() -> dict[str, Any]:
-    """Use this tool if the user asks the questions about the system's purpose, features, or how it works."""
+    """Gets comprehensive information about the AMI system including its purpose, features, supported sensors, how to use it, setup instructions, FAQ, troubleshooting, and operational guidance. Use this tool for any questions about what AMI is, how it works, how to configure it, how to add sensors, how to use features, or general system information."""
     print("Executing read_system_info tool...")
     try:
         system_info_content = await _read_system_info_sync()
